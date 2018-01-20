@@ -1,0 +1,37 @@
+~~偷懒就用windows环境了(apache-tomcat-8.5.23)
+1.下载tomcat包
+2.解压，注意配置java_home,当前的jdk位置，不然会发生闪退~~还有就是注意端口占用的问题
+3.双击 startup.bat 访问localhost:8080即可访问
+
+文件list：
+1.bin 存放启动和关闭Tomcat的脚本
+2.conf tomcat的各种配置文件 context、server、~~是有点熟悉
+3.lib tomcat服务器的jar包 ~~要不要看一看？？？
+4.logs 每次启动tomcat的日志文件~~conf中有配置奥
+5.webapps web应用所在目录，供外界访问的web资源的存放目录
+6.work tomcat的工作目录
+
+
+~~tomcat的使用
+
+1.端口配置
+tomcat的所有配置都在conf中，server.xml核心文件
+1.1.服务器启动端口的配置
+
+2.tomcat服务器虚拟目录的映射
+web应用开发好后，需要把web应用所在目录交给web服务器管理，这个过程称为虚拟目录映射
+
+2.1 虚拟目录映射方式之一：在server.xml中配置host
+方法：
+新增节点：
+<Context path="/JavaWebApp" docBase="F:\JavaWebDemoProject" />
+
+path 用来配置虚似目录，必须以"/"开头。
+docBase 配置此虚似目录对应着硬盘上的Web应用所在目录。
+~~好吧这~~tomcat之后不建议这种方式，因为这样需要重启tomcat
+
+2.2 虚拟目录映射方式之二：让tomcat服务器自动映射
+tomcat服务器会自动管理webapps目录下的所有web应用，并把它影射成虚拟目录
+tomcat下的问应用外界只可以直接访问
+
+

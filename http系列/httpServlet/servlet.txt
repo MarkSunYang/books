@@ -1,0 +1,35 @@
+1.Servlet 是一个java类，他不能单独运行，必须依赖servlet容器，
+2.查看了HttpServlet的源码 结构如下
+
+1.HttpServlet 父类 GenericServlet
+声明了各式各样的Method变量 GET、POST.....
+一个空构造函数（~~这个是类初始化的时候自动会执行的，源码中写出来了~~）
+
+并未全部列出
+protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+protected long getLastModified(HttpServletRequest req)
+protected void doHead(HttpServletRequest req, HttpServletResponse resp)
+protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+protected void service(HttpServletRequest req, HttpServletResponse resp)
+
+2.GenericServlet 实现了如下 Servlet, ServletConfig, Serializable
+
+Servlet 的生命周期：
+2.1.init(ServletConfig config)
+每个Servlet只能初始化一次，
+初始化的时候，Servlet引擎将一个ServletConfig对象传递进来，
+里面包含了这个Servlet的初始化参数，具体的Servlet类应该使用一个私有引用保存这个config。Servlet可以有构造方法，init在构造方法之后执行；
+2.2.service(ServletRequest,ServletResponse)
+处理请求service(ServletRequest,ServletResponse)：只有在init方法成功执行后才能处理请求，每次请求都会调用service方法；
+2.2.destroy()
+当要从容器中移除该Servlet时，会调用destroy方法，用来关闭资源，做一些清理工作，只调用一次。
+
+3.HttpServletRequest 
+查看 HttpServletRequest 的源码
+
+4.HttpServletResponse
+查看 HttpServletResponse的源码
+
+

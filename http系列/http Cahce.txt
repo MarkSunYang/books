@@ -25,4 +25,46 @@ A client indicates that it has a cached response available for use by sending a 
 如果服务器对未修改的HTTP/304的条件请求进行了响应，那么客户机将被指示重用它的缓存响应，
 否则服务器应该返回一个新的响应，客户端应该丢弃过期的缓存项。
 
-HTTP 304 Not Modified
+HTTP 304: Not Modified
+If-Modified-Since/Last-Modified
+
+cache-control：
+no-chache 说明强制每次请求直接发送给源服务器，而不经过本地缓存版本的校验。
+max-age>0/max-age<=0  max-age>0 时 直接从游览器缓存中 提取 /max-age<=0 时 向server 发送http 请求确认 ,该资源是否有修改有的话 返回200 ,无的话 返回304. 
+
+Expires：
+
+
+
+Demo 一张图片，+helloworld webserver：IIS
+
+第一次请求
+status code 200
+Request Headers:
+method：get   url:/index.html  protocol HTTP/1.1
+Cache-Control: no-cache
+Pragma: no-cache
+Client:
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+Cookies
+
+第二次请求
+statecode:304
+Cache-Control: max-age=0
+If-Modified-Since: Fri, 19 Jan 2018 07:58:02 GMT
+If-None-Match: "f61a423bfb90d31:0"
+Client部分没有改变
+
+
+
+
+
+
+
+
+
+
+

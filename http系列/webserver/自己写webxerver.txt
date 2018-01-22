@@ -71,7 +71,27 @@ web服务器和浏览器之间无论是发送数据还是接受数据，都遵�
 生产者=》消费者模式
 
 
-C#封装的HTTPListener与Socket两种方式的差异
+C# 实现简单的web服务器，该服务器向请求的浏览器返回一个静态的HTML页面
+
+1.获得本机的IP地址， IPAddress
+2.创建可以访问的端口， IPEndPoint
+3.创建Socket对象，使用IPV4地址，数据通信为数据流，传输控制协议为TCP/IP Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+4.将Socket 绑定到ip端口 Scoket.Bind 
+5.监听部分：
+    开始监听，这个方法会堵塞线程的执行，知道接收到客户的请求
+
+
+Socket存在于客户端和服务器端：
+客户端： socket()->Connect()->while()->read()->close();
+
+
+服务器 socket()->bind()->listen()->accpet()->read()->write()->read()->close()
+1.创建Socket套接字，绑定指定host，并监听。
+2.线程堵塞等待用户端请求，当客户端请求到达时建立连接。
+
+
+
+
 
 
 

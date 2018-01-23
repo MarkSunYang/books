@@ -1,0 +1,14 @@
+1.java中多线程的使用方法，线程同步，线程数据传递、线程状态
+2.线程的5个状态 创建、就绪、运行、阻塞、终止
+
+3.扩展java.lang.Thread类
+继承Thread方法
+4.实现 java.lang.Runnable接口
+
+
+Thread和Runnable的区别
+实现Runable接口比继承Thread类具有的优势
+1.适合多个相同的程序代码的线程去处理同一个资源
+2.可以避免java中单继承限制
+3.增加程序的健壮性，代码可以被多个线程共享，
+4.线程池只能放实现runnable或callable类线程

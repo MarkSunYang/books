@@ -1,0 +1,18 @@
+泛型程序设计
+
+1.为什么要使用泛型
+2.定义简单泛型类型
+3.泛型方法
+4.类型变量的限定
+5.泛型代码和虚拟机
+6.约束和局限
+7.泛型的继承规则
+8.通配符类型
+9.反射和泛型
+
+Generic
+类 ArrayList<E>
+java.lang.Object -> java.util.AbstractCollection -> java.util.AbstractList
+
+1.简单泛型类
+2.泛型方法

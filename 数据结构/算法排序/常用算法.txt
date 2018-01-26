@@ -1,0 +1,23 @@
+算法
+
+1.插入排序
+Insert-sort(A)
+for j=2 to A.length
+    key=A[j] 
+    //Insert A[j] into the sorted sequence a[1..j-1]
+    i=j-1
+    while i>0 and A[i]>key
+        a[i+1]=a[i]
+    A[i+1]=key
+
+循环不变式和插入排序的正确性：
+
+算法的时间复杂度：
+Insert-sort中，每条语句的执行时间和次数，j=2...n,n为a.length
+最坏情况和平均情况
+
+
+分治算法
+分解=》解决=》合并=》并归=》并归排序=》分解=》解决=》合并
+
+

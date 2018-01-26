@@ -1,0 +1,14 @@
+1.Http协议的工作方式和Http网络的协议栈结构
+2.如何实现基于http协议和tcp协议的RPC调用，他们之间的差别应用场景
+3.如何实现服务的动态注册和路由负载均衡
+
+
+1.1 RPC Remote process call 远程调用协议 比如webservice
+1.2 对象的序列化
+将对象转为二进制流的过程成为对象的序列化
+将二进制流回复为对象的过程成为对象的反序列化
+
+1.2基于TCP协议实现RPC
+
+SayHelloService
+Customer   SayHelloServiceImpl Provider

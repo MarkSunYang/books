@@ -1,0 +1,28 @@
+核心技术第三章
+1.连接到服务器
+2.获取web数据
+3.实现服务器
+4.发送E-mail
+5.可中断套接字
+
+1.1连接到服务器
+
+构建一个C/S控制台
+1.1.1.Server 
+
+//监听8080端口 此类实现服务器套接字。服务器套接字等待请求通过网络传入。它基于该请求执行某些操作，然后可能向请求者返回结果。
+ServerSocket serverSocket=new ServerSocket(8080); 
+//此类实现客户端套接字（也可以就叫“套接字”）。套接字是两台机器间通信的端点
+Socket socket=  serverSocket.accept();
+//读取inputstream
+BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+最后关闭连接
+
+1.1.2Client端
+//1.创建客户端Socket，指定服务器地址和端口号
+ Socket socket=new Socket("127.0.0.1", 8080);
+  //2.获取输出流，用来向服务器发送信息
+  OutputStream os=socket.getOutputStream();//字节输出流
+
+
+2.2构建一个b/s架构的程序

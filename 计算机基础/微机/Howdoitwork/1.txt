@@ -1,0 +1,10 @@
+小小的 bit
+什么是电脑？我们可以用它来看图片，玩游戏，查收邮件，网上聊天，还有更多的功能呢，但是电脑中真的饿存在图片吗？
+
+This computer part is a simple device that has three connections where there may or may not be some electricity. Two of those
+connections are places where electricity may be put into the device, and the third connection is a place where electricity may
+come out of the device.
+
+This computer part is a device that does something with bits. If you have two bits, and you connect those two bits to the inputs,
+this device "looks" at those two bits, and "decides" whether to turn the one output bit on or off.
+

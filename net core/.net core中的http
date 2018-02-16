@@ -1,0 +1,47 @@
+
+//不完整。。。
+
+
+// HttpContext 封装浏览器对服务器的请求的各种数据
+public abstract class HttpContext{
+    public abstract HttpRequest Request { get; }
+
+    public abstract HttpResponse Response { get; }
+}
+
+
+
+//请求方法，contexttype 请求体 长度，内容 等内容
+public abstract class HttpRequest{
+     protected HttpRequest();
+
+    //
+    public abstract QueryString QueryString { get; set; }
+
+    public abstract Stream Body { get; set; }
+
+    public abstract string ContentType { get; set; }
+   
+    public abstract long? ContentLength { get; set; }
+
+    public abstract string Method { get; set; }
+
+    public abstract HttpContext HttpContext { get; }
+}
+
+public abstract class HttpResponse{
+    public abstract HttpContext HttpContext { get; }
+
+    public abstract int StatusCode { get; set; }
+
+    public abstract IHeaderDictionary Headers { get; }
+
+    public abstract Stream Body { get; set; }
+
+    public abstract long? ContentLength { get; set; }
+
+    public abstract string ContentType { get; set; }
+}
+
+
+

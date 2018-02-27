@@ -57,3 +57,5 @@ Etag / If-None-Match（优先级高于Last-Modified  /  If-Modified-Since)
 
 
 参考：https://www.cnblogs.com/chenqf/p/6386163.html
+
+https://segmentfault.com/a/1190000006689795

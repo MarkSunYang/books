@@ -1,0 +1,19 @@
+标准库、自由基础库、delog库
+
+2.1 
+assert.h  errno.h
+assert.h 头文件，里面有个assert宏用于断言，判断这个逻辑不会错
+setjmp.h 的跨函数跳转 (长跳转，上下文信息，)
+stdarg.h 处理可变参数，需要历来stdarg.h中的4个宏操作
+va_list() 可以定义一个存储可变参信息的数据空间
+va_start 确定上述的参数，将当前可变的信息装载params中
+va_arg 获得参数信息
+va_end、
+va_copy 用于复制params中的信息，在调用子函数后，均存在通过va_arg
+
+stdio.h 标准的输入输出，文件的相关操作
+string.h 字符串相关处理
+time.h 时间和日期
+
+2.1构建自有基础库
+2.1.1 基础操作

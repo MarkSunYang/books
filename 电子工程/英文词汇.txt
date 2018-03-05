@@ -1,0 +1,11 @@
+电荷：Charge
+正电荷 positive charge
+负电荷 negtive charge
+
+电子海electron sea
+自由电子 free electron 
+电流 current
+magnetic field 磁场
+电阻 resistance
+二极管 diode
+晶体管 transistor

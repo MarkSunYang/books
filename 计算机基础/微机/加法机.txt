@@ -56,3 +56,7 @@
 加法器：
 和输出：异或门
 进位输出：与门
+
+
+参考
+http://blog.csdn.net/mote0714/article/details/42292299

@@ -1,0 +1,16 @@
+malloc实在c语言中用于在程序运行时在内存中进行动态分配的函数库
+free是进行内存释放的库函数
+函数原型：
+void *malloc(   
+   size_t size   
+);
+void free(   
+   void* memblock   
+);
+返回值：
+成功时，返回所分配存储空间的起始地址；返回值类型为void*,在C语言中可以把void*直接付给具体的类型，但是在C++中必须进行强制类型转换
+失败时(内存不足时)返回NULL
+size为0时，返回的指针不是NULL；但是除了free，别的地方不要使用这个指针。
+
+malloc实际分配额的内存大小
+malloc实际分配的内存会大于我们需要的size

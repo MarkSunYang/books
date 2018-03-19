@@ -1,0 +1,6 @@
+http://blog.csdn.net/ksksjipeng/article/details/52150779
+
+基本操作和liunx上一样
+编译命令
+1.gcc .c -o 你想要的文件名
+2.直接文件名就可可以不需要像 linux中用./生成的文件

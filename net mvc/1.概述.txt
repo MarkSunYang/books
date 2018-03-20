@@ -1,0 +1,15 @@
+做.net的这几年，摸爬滚打，从webform到mvc,从拖拉控件，到html，js,css,jquery，再到现在的前后端分离
+
+从httphandler,httpmodule,
+
+不管是webfrom还是mvc他们都是web开发技术，
+都是基于http协议的，所以了解http中的状态码对我们的排错也有一定的帮助，并且通过分析请求的时间也能够帮助我们优化后台方法
+
+1.webfrom和mvc的区别
+
+
+1.基本概念
+视图 View 用户界面
+模型 Model 表示用户对其数据的操作的一个封转
+控制器 Controller 控制器可以理解为从用户接收请求，将模型与视图匹配在一起，共同完成用户的请求。
+

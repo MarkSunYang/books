@@ -1,0 +1,62 @@
+
+
+链接一 http://files.cnblogs.com/files/pengze0902/aspnet-web-api-poster.pdf
+
+链接二 https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
+
+结合microsoft和redgate查看 System.Web.Routing.dll的源码，我们了解下
+mvc的生命周期。
+
+微软官网给了两张图，(链接二)
+第一张是 mvc5 application lifecycle-High level view 
+第二章是  mvc5 application lifecycle detail
+哈哈，一个整体框架，一个具体到细节
+先看第一张，
+    
+httprequest,httpResponse 贯穿了 httpapplication processing pipeline
+Routing 
+MvcHandler 处理请求它包含了Controller Creation，Authentication and Authorization，
+Model Binding， Action Methond Invocation ，Result Excution（View）等，（哇，写一堆英文，我也头疼，坚持住，这才是个开始）
+咋一看也明白啥意思，不过不管是asp,jsp,php,他总归是 发送httprequest然后得到httpresponse。
+我们看到了HttpApplication Processing Pipeline 贯穿了整个过程，那么在处理请求的过程中，他肯定
+提供了某些资源，然后我们看到恩了Routing，对就是这玩意，我们找到了mvc5 下面的System.Web.Routing.dll
+他们之间肯定会存在某些关系，下面就是mvchandler，控制器，权限，实体绑定，action请求，视图返回都和他有关系
+那么他们之间是什么关系呢？我也不清楚，好了，还是乖乖看第二张图
+为了方便理解，我们新建一个.net mvc 5的项目（嘿嘿嘿）
+
+那么一切还是从HttpRequest请求说起
+2.1 Application_Start(In Global.asax.cs)  (Global.asax.cs，没错这就是我们项目中的Global文件)
+图里给的T解释就很厉害了，我们看看，先粘贴英文再说：
+Tasks to perform:(执行任务)
+.Common tasks such as register routes, bundles, and filters（注册路由，捆绑包，过滤器）
+通过查看我们新建的.net mvc 项目，我们看到了
+
+public class MvcApplication : System.Web.HttpApplication
+{
+    protected void Application_Start()
+    {
+        AreaRegistration.RegisterAllAreas();//区域路由注册
+        FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);//过滤器
+        RouteConfig.RegisterRoutes(RouteTable.Routes);//注册路由
+        BundleConfig.RegisterBundles(BundleTable.Bundles);//捆绑包优化
+    }
+}
+哇，看到这段代码上面说的什么路由注册，捆绑包的就是这些了，可以F12进去具体看这些方法的具体作用，
+咦好像看到了一个继承MvcApplication : System.Web.HttpApplication，F12看了下多细还挺多，网上看了下
+哇不得了，这个 HttpApplication是整个ASP.NET基础架构的核心，他负责处理分发给他的HTTP请求。
+由于一个HttpApplication对象在某个时刻只能处理一个请求，只有完成对某个请求的处理后才能用于后续请求的处理，
+所以ASP.NET采用对象池的机制来创建或获取HttpApplication对象。
+
+.Advance tasks such as set custom controller factory 
+哇，啥都没看懂，就看见控制器工厂了，难道，控制器是用工厂new出来的？
+
+一下子多了好几个问题？（留个疑问）继续走我们的Pipeline
+
+2.2 HttpApplication.Init
+在HttpApplication定义的最后一段我们看到了：
+//添加事件处理程序的所有模块后，请执行自定义初始化代码。
+public virtual void Init();
+
+2.3 IHttpModule.Init 
+奇怪的是我们并没有在项目中见到IHttpModule，
+

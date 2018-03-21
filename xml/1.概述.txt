@@ -1,0 +1,34 @@
+xml EXtensible Markup Language 可扩展标记语言，被设计用来传输和存储数据。
+xml 没有被预定义的标签，我们需要自行定义标签。
+
+xml是没有任何行为的
+<note>
+<to>Malik</to>
+<from>Mark</from>
+<heading>Reminder</heading>
+<body>Don't forget the meeting!</body>
+</note>
+上面的这条便签具有自我描述性。它拥有标题以及留言，同时包含了发送者和接受者的信息。
+但是，这个 XML 文档仍然没有做任何事情。它仅仅是包装在 XML 标签中的纯粹的信息。我们需要编写软件或者程序，才能传送、接收和显示出这个文档。
+
+XML 仅仅是纯文本
+XML 没什么特别的。它仅仅是纯文本而已。有能力处理纯文本的软件都可以处理 XML。
+不过，能够读懂 XML 的应用程序可以有针对性地处理 XML 的标签。标签的功能性意义依赖于应用程序的特性。
+
+通过xml我们可以发明自己的标签
+
+xml 把数据从html分离
+xml 简化数据共享 纯文本的个数存储数据
+xml 简化数据传输 RPC
+xml 简化平台的变更
+
+xml用于创建新的Internet语言
+XHTML 最新的html版本
+WSDL 用于描述可用的WebService
+WAP和WML 用于手持设备的表记语言
+RSS用于RSS feed的语言
+RDF和OWL 用于描述资源和文本
+SMIL用于描述针对web的多媒体
+
+
+XML 文档形成一种树结构

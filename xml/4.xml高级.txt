@@ -1,0 +1,16 @@
+1.XML 命名空间提供避免元素命名冲突的方法。
+
+命名冲突
+
+使用前缀来避免命名冲突
+
+<h:table>
+   <h:tr>
+   <h:td>Apples</h:td>
+   <h:td>Bananas</h:td>
+   </h:tr>
+</h:table>
+
+2.XML 编码
+XML 文档可以包含非 ASCII 字符，比如法语。
+为了避免错误，需要规定 XML 编码，或者将 XML 文档存为 Unicode。

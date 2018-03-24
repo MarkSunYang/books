@@ -1,0 +1,23 @@
+加载JDBC驱动程序 → 建立数据库连接Connection → 创建执行SQL的语句Statement → 处理执行结果ResultSet → 释放资源
+
+1.注册驱动 (只做一次)
+　　方式一：Class.forName(“com.MySQL.jdbc.Driver”);
+　　推荐这种方式，不会对具体的驱动类产生依赖。
+　　方式二：DriverManager.registerDriver(com.mysql.jdbc.Driver);
+　　会造成DriverManager中产生两个一样的驱动，并会对具体的驱动类产生依赖。
+
+2.建立连接
+Connection conn = DriverManager.getConnection(url, user, password);
+
+3.创建执行SQL语句的statement
+//Statement  
+String id = "5";
+String sql = "delete from table where id=" +  id;
+Statement st = conn.createStatement();  
+st.executeQuery(sql);  
+//存在sql注入的危险
+//如果用户传入的id为“5 or 1=1”，那么将删除表中的所有记录
+
+4.处理执行结果(ResultSet)
+
+5.释放资源

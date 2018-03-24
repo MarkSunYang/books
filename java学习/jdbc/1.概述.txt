@@ -1,0 +1,52 @@
+1.Java Data Base Connectivity,java 数据库连接，是一种执行sql语句的java api，可以为多种关系型数据库提供统一访问，
+
+2.数据库驱动
+我们需要数据库驱动才能访问数据库，java 访问 mysql的驱动也就是我们用的 mysql-connector-java
+
+
+3.常用接口
+3.1.Deiver 接口
+Driver接口由数据库厂商，作为java开发人员，只需要使用Driver接口就可以了，在编程中链接数据库，必须装载特定厂商的数据库驱动程序，
+不同的数据库有不同的装载方法
+装载 mysql驱动：Class.ForName("com.mysql.jdbc.Driver")
+3.2Connection 接口
+Connection 与特定数据库的链接，在链接上下文中执行sql语句并返回结果，
+连接MySql数据库：Connection conn = DriverManager.getConnection("jdbc:mysql://host:port/database", "user", "password");
+常用方法
+ createStatement() 创建向数据库发送sql的statement对象
+ prepareStatement(sql) 创建想数据库预编译sql的PrePareStatement对象
+ prepareCall(sql)：创建执行存储过程的callableStatement对象。
+ setAutoCommit(boolean autoCommit)：设置事务是否自动提交。
+ commit() ：在链接上提交事务。
+ rollback() ：在此链接上回滚事务。
+3.3 Statement接口 用于执行静态sql语句并返回它所生成结果的对象
+三种Statement：
+Statement 由createment对象创建，用于发送简单的sql语句，不带参数
+PreparedStatement 继承自Statement接口，由preparedStatement创建，用于发送含有一个或多个参数的SQL语句。
+PreparedStatement对象比Statement对象的效率更高，并且可以防止SQL注入，所以我们一般都使用PreparedStatement。
+CallableStatement：继承自PreparedStatement接口，由方法prepareCall创建，用于调用存储过程。
+
+常用Statement方法
+execute(String sql):运行语句，返回是否有结果集
+executeQuery(String sql)：运行select语句，返回ResultSet结果集。
+executeUpdate(String sql)：运行insert/update/delete操作，返回更新的行数。
+addBatch(String sql) ：把多条sql语句放到一个批处理中。
+executeBatch()：向数据库发送一批sql语句执行。
+
+3.4 ResultSet 接口
+Result接口提供检索不同类型字段的方法，常用的有
+getString(int index)、getString(String columnName)：获得在数据库里是varchar、char等类型的数据对象。
+getFloat(int index)、getFloat(String columnName)：获得在数据库里是Float类型的数据对象。
+getDate(int index)、getDate(String columnName)：获得在数据库里是Date类型的数据。
+getBoolean(int index)、getBoolean(String columnName)：获得在数据库里是Boolean类型的数据。
+getObject(int index)、getObject(String columnName)：获取在数据库里任意类型的数据。
+
+ResultSet还提供了对结果集进行滚动的方法：
+
+next()：移动到下一行
+Previous()：移动到前一行
+absolute(int row)：移动到指定行
+beforeFirst()：移动resultSet的最前面。
+afterLast() ：移动到resultSet的最后面
+
+使用后依次关闭对象及连接：ResultSet → Statement → Connection

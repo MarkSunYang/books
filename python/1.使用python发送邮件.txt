@@ -1,0 +1,31 @@
+python中email模块使得邮件变得简单，哈哈突然想起了毕业用.net 去发送邮件赋值粘贴的场景
+python你懂的，import package，爽歪歪
+
+1.模块介绍
+发送邮件主要用到了smtplib 和 email
+
+1.1 smtplib模块
+smtplib.SMTP([host[, port[, local_hostname[, timeout]]]])
+SMTP 的构造函数，表示SMTP服务器之间的链接，通过这个链接可以向smtp服务器发送指令，如登录，发送邮件，参数都是可选的
+
+host: smtp 服务器主机名称
+port: smtp 服务器的端口，默认是25也是smtp的默认端口，如果在创建SMTP对象的时候提供了这两个参数，在初始化的时候会自动调用connect方法去连接服务器。
+smtplib.SMTP提供的方法：
+SMTP.connect([host[, port]])：连接到指定的smtp服务器
+SMTP.docmd(cmd[, argstring])：向smtp服务器发送指令。可选参数argstring表示指令的参数。
+SMTP.helo([hostname]) ：使用"helo"指令向服务器确认身份。相当于告诉smtp服务器“我是谁”。
+SMTP.has_extn(name)：判断指定名称在服务器邮件列表中是否存在。出于安全考虑，smtp服务器往往屏蔽了该指令。
+SMTP.verify(address) ：判断指定邮件地址是否在服务器中存在。出于安全考虑，smtp服务器往往屏蔽了该指令。
+
+email
+
+
+2 几种邮件的具体代码实现
+
+2.1 普通文本邮件
+
+2.2 html的邮件发送
+
+2.3 带附件的邮件
+
+2.4 利用MIMEimage发送图片

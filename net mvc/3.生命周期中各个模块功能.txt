@@ -1,0 +1,19 @@
+--------插一句
+HttpApplication -> Routing-> controller-> Authentication Filters->
+authorization Filters ->Authorization Challenges -> Action Excution ->Result Excution
+
+
+1.HttpApplication与HttpModule
+Http 请求asp.net 运行
+
+2.Routing
+
+UrlRoutingHandler 
+
+3.controller
+
+4.Filters
+
+5.Action
+
+6.Result

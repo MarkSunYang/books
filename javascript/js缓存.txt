@@ -1,0 +1,27 @@
+JS 页面缓存
+Cookie和LocalStroage，SessionStroage的区别
+
+这里我们说的是本地缓存，即客户端的缓存，
+Cookie机制
+Http Cookie 是绑定在特定的域名下面，设定一个cookie之后，再给创建它的域名发请求时都会包含这个cookie
+。这个限制确保了存储在cookie中的信息只能让批准的接收者访问。cookie是保存在计算机上的，每个域的
+cookie也是有限的
+
+1.首先，当客户端第一次访问服务器时，先发送HTTP请求给服务端； 
+https://img-blog.csdn.net/20170528104305267?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDA0NjMxOA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast
+
+服务端在收到客户端发来的HTTP请求之后，会在本服务器上做一些操作，操作结束会根据结果发一个HTTP响应给客户端。这时候，会在HTTP响应报文的头部中加入：Set-Cookie: name = value，并把该信息存储到本服务器上(Session)； 
+- 客户端收到HTTP响应报文之后，会检查Set-Cookie字段，并将其值存储到浏览器中。当客户端第二次再去访问该服务器时，会将之前保存的信息取出来并在HTTP请求头部加上一个Cookie：name = value 
+- 这时候服务器收到HTTP请求报文之后，将Cookie取出来，与服务器存储的Session进行匹配，如果匹配上，用户信息验证成功。
+
+cookie 和 JS
+
+我们可以通过document.cookie来读取或者设置Cookie。
+
+
+
+
+
+
+参考JS高级编程 629
+csdn https://blog.csdn.net/u010046318/article/details/72791786

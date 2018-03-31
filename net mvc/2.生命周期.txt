@@ -7,6 +7,7 @@
 结合microsoft和redgate查看 System.Web.Routing.dll的源码，我们了解下
 mvc的生命周期。
 
+
 微软官网给了两张图，(链接二)
 第一张是 mvc5 application lifecycle-High level view 
 第二章是  mvc5 application lifecycle detail
@@ -23,6 +24,10 @@ Model Binding， Action Methond Invocation ，Result Excution（View）等，（
 他们之间肯定会存在某些关系，下面就是mvchandler，控制器，权限，实体绑定，action请求，视图返回都和他有关系
 那么他们之间是什么关系呢？我也不清楚，好了，还是乖乖看第二张图
 为了方便理解，我们新建一个.net mvc 5的项目（嘿嘿嘿）
+
+
+
+
 
 那么一切还是从HttpRequest请求说起
 2.1 Application_Start(In Global.asax.cs)  (Global.asax.cs，没错这就是我们项目中的Global文件)
@@ -59,4 +64,7 @@ public virtual void Init();
 
 2.3 IHttpModule.Init 
 奇怪的是我们并没有在项目中见到IHttpModule，
+
+2.4 HttpApplication.PostResolveRequstCache
+
 

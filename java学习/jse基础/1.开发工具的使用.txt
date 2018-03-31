@@ -1,0 +1,52 @@
+工欲善其事必先利其器
+
+
+1.Eclipse 是我们常用的java开发工具，Eclipse 会有很多版本我们这里用的是Eclipse IDE for Java EE Developers开发
+使用IDE时为了加快我们敲代码的速度，常用的eclipse快捷键（在菜单栏中其实有提示）：
+
+1.1 快速输入main 函数： 输入mian 然后 alt+/(先按alt然后/)
+
+1.2 快速输入System.out.println 输入 syso 然后 alt+/
+
+1.3 快速输入 输入for 然后 alt+/
+
+1.4 快速格式化代码 ctrl+alt+f  (f formatter 记住因为单词就更容易记住快捷键，我反正是这样)
+
+1.5 快速注释/取消注释 (注释有两种：单行// 和多行 /**/)
+    1.5.1 单行 ctrl+/   再按一次取消注释
+    1.5.2 多行注释ctrl+alt+/   取消多行注释ctrl+alt+\
+
+1.6 toString getter setter 构造方法的快速生成
+    菜单中Source->Generate Getters and Setters 
+    这里可以生成很多 我们就不一一举例了  -…-
+
+1.7 快速查找 
+    ctrl+F //当前页面查找
+    ctrl+H //整个项目搜索（哈哈，搜索用正则，就问你怕不怕）
+    
+1.8 快速打开类文件 ctrl+alt+R，也可以按住ctrl+鼠标单机
+
+1.9 快速移动代码 
+    alt +方向键 可以 移动选中代码
+
+1.10 快速屏幕最大化  
+     ctrl+m 取消两边的导航，再次 取消代码全屏
+
+1.11 Eclipse 的代码自动提示
+Eclipse的自动代码提示默认是关闭的，只有输入 “.”的时候才会提示
+开启代码自动提示功能打开 Eclipse  -> Window -> Perferences -> Java -> Editor -> Content Assist，在右边最下面一栏找到 auto-Activation ，
+下面有三个选项，找到第二个“Auto activation triggers for Java：”选项在其后的文本框中会看到一个“.”存在。
+将其改成 abcdefghijklmnopqrstuvwxyz
+
+1.12 如何查看Eclipse 源码 见链接
+    http://www.cnblogs.com/MarkSun3/p/8679481.html
+
+1.13 Eclipse 属性文件无法显示中文
+    Window-> Perferences ->General ->Content Type-> Text-> java properties File  改成UTF-8 并update
+
+1.14 快速 写 try catch 
+     键入 try  然后 alt + /
+
+待续~~
+
+     

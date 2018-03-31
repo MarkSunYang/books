@@ -1,0 +1,235 @@
+java.util.logging.Logger 使用详解
+
+
+
+F3查看源码的时候~~
+
+在应用程序中添加日志记录总的来说基于三个目的：
+1.监视代码中变量的变化情况，周期性的记录到文件中供其他应用进行统计分析工作；
+2.跟踪代码运行时轨迹，作为日后审计的依据；
+3.担当集成开发环境中的调试器的作用，向文件或控制台打印代码的调试信息。
+log4j是常用的日志组件，
+哈哈所以我也就不知道 java.util.logging.Logger
+好下面我们来谈谈 java.until.logging.Logger
+
+static Logger getLogger(String name) 为指定子系统查找或创建一个logger
+static Logger getLogger(String name,String resourceBundleName)   为指定子系统查找或创建一个 logger。 
+
+name是Logger的名称，当名称相同时候，同一个名称的Logger只创建一个。
+
+
+1. Logger的级别
+.OFF      OFF is a special level that can be used to turn off logging
+.SEVERE   SEVERE is a message level indicating a serious failure.
+.WARNING  WARNING is a message level indicating a potential problem.
+.INFO     INFO is a message level for informational messages.
+.CONFIG   CONFIG is a message level for static configuration messages.
+.FINE     FINE is a message level providing tracing information.
+.FINER    FINER indicates a fairly detailed tracing message.
+.FINEST   FINEST indicates a highly detailed tracing message.
+.ALL      ALL indicates that all messages should be logged.
+
+logger 的默认级别是INFO,比INFO更低级别的日志不显示
+
+2. Logger的Handler
+查看Handler源码 
+ A <tt>Handler</tt> object takes log messages from a <tt>Logger</tt> and
+ * exports them.  It might for example, write them to a console
+ * or write them to a file, or send them to a network logging service,
+ * or forward them to an OS log, or whatever.
+ Handler 对象从 Logger 中获取日志信息，并将这些信息导出。例如，它可将这些信息写入控制台或文件中，
+ 也可以将这些信息发送到网络日志服务中，或将其转发到操作系统日志中。 
+ 可以通过setLevel(Level.OFF)来禁用Handler，
+
+ Handler 类通常使用 LogManager 属性来设置 Handler 的 Filter、Formatter 和 Level 的默认值。
+java.util.logging.Handler
+java.util.logging.MemoryHandler
+java.util.logging.StreamHandler
+java.util.logging.ConsoleHandler
+java.util.logging.FileHandler
+java.util.logging.SocketHandler
+
+3. Logger 的 Formatter
+
+
+看都看了，我们就顺便看下log4j
+可以刀耕火种的使用system.out.print 打印语句，写js可以去console.log
+也可以用log4j
+基本使用：
+3.1 定义配置文件
+配置文件可以使我们的程序更加灵活
+log4j支持两种文件格式，一种是XML的文件，一种是java特性文件 key=value
+java特性文件的配置方法：
+log4j.rootLogger=[level],appenderName,appenderName,...
+其中Level是日志记录的优先级，OFF、FATAL、ERROR、WARN、INFO、DEBUG、ALL或者您定义的级别
+appenderName就是指定日志信息输出到哪个地方。您可以同时指定多个输出目的地。 
+
+3.1.2 配置日志输出目的地 Appender其语法为
+log4j.appender.appenderName = fully.qualified.name.of.appender.class
+log4j提供的appender有一下几种
+org.apache.log4j.ConsoleAppender（控制台），
+org.apache.log4j.FileAppender（文件），
+org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），
+org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），
+org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方） 
+
+3.1.3 配置日志信息的格式（布局），其语法为： 
+log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
+Log4j提供的layout有以下几种：
+org.apache.log4j.HTMLLayout（以HTML表格形式布局），
+org.apache.log4j.PatternLayout（可以灵活地指定布局模式），
+org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），
+org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息） 
+
+
+
+3.2 在代码中使用Log4j
+
+3.2.1 配置文件
+需要在resource文件下新建一个log4j.properties 的文件，我们的配置可以访问配置文件中，然后log4j启动的时候回去读取
+log4j.rootLogger  =   [ level ]   ,  appenderName1 ,  appenderName2 ,  …
+
+### 配置日志信息输出目的地Appender
+log4j.appender.appenderName  =  fully.qualified.name.of.appender.class 
+
+### 配置日志信息的格式（布局）
+log4j.appender.appenderName.layout  =  fully.qualified.name.of.layout.class 
+
+Appender 的输出方式有如控制台，文件
+控制台 org.apache.log4j.ConsoleAppender
+文件   org.apache.log4j.FileAppender
+每天产生一个日志文件 org.apache.log4j.DailyRollingFileAppender
+文件大小到达指定尺寸的时候产生一个新的文件 org.apache.log4j.RollingFileAppender
+将日志信息以流格式发送到任意指定的地方 org.apache.log4j.WriterAppender
+
+Log的日志输出格式，Log4j提供的了如下几种
+以HTML表格形式布局                    org.apache.log4j.HTMLLayout
+可以灵活地指定布局模式                 org.apache.log4j.PatternLayout
+包含日志信息的级别和信息字符串          org.apache.log4j.SimpleLayout
+包含日志产生的时间、线程、类别等等信息   org.apache.log4j.TTCCLayout
+
+Log打印参数跟c语言类似，
+%m   输出代码中指定的消息
+%p   输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL
+%r   输出自应用启动到输出该log信息耗费的毫秒数 
+%c   输出所属的类目，通常就是所在类的全名 
+%t   输出产生该日志事件的线程名 
+%n   输出一个回车换行符，Windows平台为“/r/n”，Unix平台为“/n” 
+%d   输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss}
+%l   输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。
+%x: 输出和当前线程相关联的NDC(嵌套诊断环境),尤其用到像java servlets这样的多客户多线程的应用中。
+
+配置一个简单的log4j.properties
+
+log4j.rootLogger = debug,stdout,D ,E
+
+### 输出到控制台 ###
+log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target = System.out
+log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern =  %d{ABSOLUTE} %5p %c{ 1 }:%L - %m%n
+
+### 输出到日志文件 ###
+log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.D.File = logs/log.log
+log4j.appender.D.Append = true
+log4j.appender.D.Threshold = DEBUG ## 输出DEBUG级别以上的日志
+log4j.appender.D.layout = org.apache.log4j.PatternLayout
+log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+### 保存异常信息到单独文件 ###
+log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.D.File = logs/error.log ## 异常日志文件名
+log4j.appender.D.Append = true
+log4j.appender.D.Threshold = ERROR ## 只输出ERROR级别以上的日志!!!
+log4j.appender.D.layout = org.apache.log4j.PatternLayout
+log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+
+
+
+
+配置的遇到的问题：  
+1.注释只能顶格写
+
+JDBC Appender
+https://blog.csdn.net/azheng270/article/details/2173430/
+
+日志的记录一般有两个目的: troubleshooting和显示运行状态。
+
+（
+.日志可以记录参数，如果操作数据库失败，我们不但有了参数，还可以用这个参数重现bug
+.日志做成dashboard，可以实施查看系统运行
+哈哈括号是我的理解，yy的~~
+）
+
+.如何记日志可以方便troubleshooting
+.程序运行状态可以记哪些
+.应该避免怎样的日志方式
+
+1.1. 对外部的调用封装
+Log.debug ("calling external system:"+parameters);
+object result=null;
+try{
+    result=callRemote();
+    log.debug("successfully"+result);
+}
+catch(Exception e)
+{
+    log.warn('Failed at calling xxx system'+e);
+}
+
+1.2. 状态变化
+bool isRunning;
+isRunning=true;
+Login.info("system is Running");
+
+isRunning=false;
+Login.info("system stoped");
+
+1.3. 系统入口与出口(切面编程相关)
+void exceute(Object input){
+    Log.debug("Invoke parames:"+input);
+    Object result=null;
+    Log.debug("Method result : "+result);
+}
+
+1.4. 业务异常
+try {  
+      //business logical  
+} catch (IOException e) {  
+      LOG.warn("Description xxx" , e);  
+} catch (BusinessException e) {  
+      LOG.warn("Let me know anything");  
+} catch (Exception e) {  
+      LOG.error("Description xxx", e);  
+}
+
+1.5. 非与预期执行
+为程序在“有可能”执行到的地方打印日志。如果我想删除一个文件，结果返回成功。但事实上，那个文件在你想删除之前就不存在了。
+最终结果是一致的，但程序得让我们知道这种情况，要查清为什么文件在删除之前就已经不存在
+
+1.6 很少出现的
+else可能吞掉你的请求，或是赋予难以理解的最终结果
+Object result = null;  
+if (running) {  
+    result = xxx;  
+} else {  
+    result = yyy;  
+    LOG.debug("System does not running, we change the final result");  
+ }  
+
+程序运行状态可以记录哪些
+1). 程序运行时间：
+2). 大批量数据的执行进度
+3). 关键变量及正在做哪些重要的事情
+
+应该避免怎么样的日志：
+1). 混淆信息的Log
+2). 记错位置
+3). 记错级别
+4). 遗漏信息
+
+打印日志也是消耗系统资源的，但是比起日志的作用~孰轻孰重
+
+参考：http://www.infoq.com/cn/articles/why-and-how-log

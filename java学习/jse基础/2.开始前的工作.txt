@@ -1,0 +1,17 @@
+知己知彼百战不殆
+
+这里需要了解一些东西
+
+1.java程序是如何编译的
+
+2.JVM
+JVM是java运行的基础，也是java可以跨平台的关键，
+
+
+IBM对于初学者介绍java技术及IBM产品的
+https://www.ibm.com/developerworks/java/newto/
+ 
+
+
+
+

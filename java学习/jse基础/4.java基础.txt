@@ -1,0 +1,32 @@
+1.java 类
+
+1).创建一个包
+2).声明一个类
+3).添加内置记录功能
+4).添加类变量
+5).添加getter,setter方法
+
+1.1访问器方法  getter 和 setter 称为访问器方法
+getter 是检索属性值的方法；setter 是修改该值的访问方法。
+访问其的命名严格准手javaBeans模式的约定，在此模式中，
+任何Foo属性都有一个成为getFoo()和setFoo的setter。
+JavaBeans 模式非常常见，所以 Eclipse IDE 中内置了对它的支持，您在生成 Person 的 getter 和 setter 时已看到。
+
+访问其遵守以下准则
+1).属性始终使用private访问级别来声明
+2).getter和setter的访问修饰符是public
+3).getter不接收任何参数，他返回一个它访问属性同类型的值
+4).setter仅接受一个与该属性同类型的参数，而且不返回值
+
+
+2. 打包 类
+Java 包是一种提供命名空间 的机制— 名称在命名空间中是唯一的，但在其外部可能不是唯一的。要唯一地标识一个结构，您必须包含它的命名空间来完全限定它
+package  
+orgType 是组织类型，比如 com、org 或 net。
+orgName 是组织的域名称，比如 makotojava、oracle 或 ibm。
+appName 是缩写的应用程序名称。
+compName 是组件的名称。
+
+
+
+1).import static 静态引入：可以引入类的方法

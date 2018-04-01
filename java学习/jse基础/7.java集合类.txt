@@ -1,0 +1,100 @@
+1).集合类框架的用途
+2).如何声明和使用数组，列表集合和映射
+3).装箱和拆箱
+4).如何让集合可迭代
+
+1.装箱和拆箱
+Java 语言中的每种原语类型都有一个对应的 JDK 类
+boolean	java.lang.Boolean
+byte	java.lang.Byte
+char	java.lang.Character
+short	java.lang.Short
+int	java.lang.Integer
+long	java.lang.Long
+float	java.lang.Float
+double	java.lang.Double
+
+
+java.util.*与java.awt.*都是java的标准库包，其中*表示java.util和java.awt包里的所有类。 
+不同之处在于java.util.*包含的是一些工具类，如集合类中List、Map、HashMap、Set等，
+而java.awt.*则封装的是和图形绘制相关的类，如点Point、线Line等。用到相应包里的类时，就会相应import相应的包。
+
+
+先理一下关系 哪些是接口，哪些是实现
+
+
+
+Collection
+├List
+│├LinkedList
+│├ArrayList
+│└Vector
+│　└Stack
+└Set
+Map
+├Hashtable
+├HashMap
+└WeakHashMap
+
+
+
+说到集合类，数据操作都会用到，所以，对集合类的理解程度可以帮助我们提高，数据操作的效率
+
+1).集合类的基本概念
+2).集合类架构层次关系
+3).集合类的应用场景代码
+
+1.java 集合类的基本概念
+集合类主要负责保存数据，因此集合类也被称为容器类，所有的集合都位于java.unti包下，
+为了处理多线程环境下的并发安全问题，java5还在java.until.concurrent包下提供了一些多线程支持的集合类
+
+
+1.Collection 接口
+    1).Collection 是最基本的集合接口，一个 Collection 代表一组 Object，即 Collection 的元素（Elements）
+一些 Collection 允许相同的元素、支持对元素进行排序，另一些则不行。
+所有实现 Collection 接口的类都必须提供两个标准的构造函数，无参数的构造函数用于创建一个空的 Collection，
+有一个 Collection 参数的构造函数用于创建一个新的 Collection，这个新的 Collection 与传入的 Collection 有相同的元素，
+后一个构造函数允许用户复制一个 Collection。
+    2).如何遍历Collection中的每一个元素
+不论Collection的实际类型如何，他都支持一个ierator的方法，
+Iterator it =Collection.iterator();
+while(it.hasNext()){
+    Object obj=it.next();
+}
+Collection 接口派生的两个接口是 List 和 Set。
+Collection 接口提供的主要方法:
+1).boolean add(Object o) 添加对象到集合；
+2).boolean remove(Object o) 删除指定的对象；
+3).int size() 返回当前集合中元素的数量；
+4).boolean contains(Object o) 查找集合中是否有指定的对象；
+5).boolean isEmpty() 判断集合是否为空；
+6).Iterator iterator() 返回一个迭代器；
+7).boolean containsAll(Collection c) 查找集合中是否有集合 C 中的元素；
+8).boolean addAll(Collection c) 将集合 C 中所有的元素添加给该集合；
+9).void clear() 删除集合中所有元素；
+10).void removeAll(Collection c) 从集合中删除 C 集合中也有的元素；
+11).void retainAll(Collection c) 从集合中删除集合 C 中不包含的元素。
+
+
+List 接口(没错，你没看错，这个List继承了Collection，但是这还是个接口)
+    List 是有序的 Collection，使用此接口能够精确的控制每个元素插入的位置。用户能够使用索引（元素在 List 中的位置，类似于数组下标）来访问 List 中的元素，这类似于 Java 的数组。
+和下文要提到的 Set 不同，List 允许有相同的元素。 
+List 还提供一个 listIterator() 方法，返回一个 ListIterator 接口。和标准的 Iterator 接口相比，ListIterator 多了一些 add() 之类的方法，允许添加、删除、设定元素、向前或向后遍历等功能。
+实现 List 接口的常用类有 LinkedList，ArrayList，Vector 和 Stack 等。   
+List 接口提供的主要方法:
+    void add(int index,Object element) 在指定位置上添加一个对象；
+    boolean addAll(int index,Collection c) 将集合 C 的元素添加到指定的位置；
+    Object get(int index) 返回 List 中指定位置的元素；
+    int indexOf(Object o) 返回第一个出现元素 O 的位置；
+    Object removeint(int index) 删除指定位置的元素；
+    Object set(int index,Object element) 用元素 element 取代位置 index 上的元素, 返回被取代的元素。
+
+
+Map 接口
+
+Map 没有继承 Collection 接口。Map 提供 Key 到 Value 的映射，一个 Map 中不能包含相同的 Key，每个 Key 只能映射一个 Value。Map 接口提供 3 种集合的视图，Map 的内容可以被当作一组 Key 集合，一组 Value 集合，或者一组 Key-Value 映射。
+
+
+SortedSet(接口)
+SortedSet是一个接口，里面（只有TreeSet这一个实现可用）的元素一定是有序的。
+保证迭代器按照元素递增顺序遍历的集合，

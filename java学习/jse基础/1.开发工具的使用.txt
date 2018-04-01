@@ -47,6 +47,12 @@ Eclipse的自动代码提示默认是关闭的，只有输入 “.”的时候�
 1.14 快速 写 try catch 
      键入 try  然后 alt + /
 
+1.15 断点调试的快捷键
+F5：Step into/进入该行的函数内部
+F6：Step over/一行一行执行
+F7：Step return/退出当前的函数 
+
+
 待续~~
 
      

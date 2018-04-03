@@ -1,0 +1,21 @@
+异常指的是运行期出现的错误，也就是当程序开始执行以后执行期出现的错误。出现错误时观察错误的名字和行号最为重要。
+
+异常的分类：
+Error：错误，java虚拟机生成并抛出，
+Exception：所有异常的父类，子类对应了各种异常的事件
+Runtime Exception 一类特殊的异常，被0除，数组下标越界等
+
+Throw和Thorws 的区别
+1). hrows出现在方法函数头；而throw出现在函数体。
+2). throws表示出现异常的一种可能性，并不一定会发生这些异常；throw则是抛出了异常，执行throw则一定抛出了某种异常对象。
+
+好的编程习惯：
+1).在写程序时，对可能会出现异常的部分通常要用try{...}catch{...}去捕捉它并对它进行处理；
+2).用try{...}catch{...}捕捉了异常之后一定要对在catch{...}中对其进行处理，那怕是最简单的一句输出语句，或栈输入e.printStackTrace();
+3).如果是捕捉IO输入输出流中的异常，一定要在try{...}catch{...}后加finally{...}把输入输出流关闭；
+3).如果在函数体内用throw抛出了某种异常，最好要在函数名中加throws抛异常声明，然后交给调用它的上层函数进行处理。
+
+其中参见 阿里异常日志：
+【强制】java类库中定义的一类RunTimeException可以通过预先检查来进行规避，而不应该通过catch来处理，IndexoutofboundsException,NullPointException等
+正：if(obj==null){}
+反: try{obj.method()}catch(NullPointException e){}

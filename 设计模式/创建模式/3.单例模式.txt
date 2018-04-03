@@ -9,3 +9,19 @@ Ensure a class only has one instance, and provide a globale point of access to i
 4.需要定义大量的静态常量和静态方法的工具
 
 
+对单例的实现可以分为两大类——懒汉式和饿汉式，他们的区别在于：
+懒汉式：指全局的单例实例在第一次被使用时构建。
+饿汉式：指全局的单例实例在类装载时构建。
+
+
+// Version 1
+public class Single1 {
+    private static Single1 instance;
+    public static Single1 getInstance() {
+        if (instance == null) {
+            instance = new Single1();
+        }
+        return instance;
+    }
+}
+

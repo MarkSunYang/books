@@ -1,5 +1,30 @@
 加载JDBC驱动程序 → 建立数据库连接Connection → 创建执行SQL的语句Statement → 处理执行结果ResultSet → 释放资源
 
+
+1. 示例代码：
+1).导入数据包：
+2).注册JDBC驱动器，开一个与数据库的通信通道。
+3).需要使用 DriverManager.getConnection() 方法创建一个 Connection 对象
+4).需要使用类型声明的对象建立并提交一个 SQL 语句到数据库。
+5).要求使用适当的 ResultSet.getXXX() 方法从结果集中检索数据。
+6).依靠 JVM 的垃圾收集来关闭所有需要明确关闭的数据库资源。
+
+2. 什么是 JDBC 驱动程序
+JDBC 驱动实现了 JDBC API 中定义的接口，该接口用于与数据库服务器进行交互。
+使用 JDBC 驱动程序可以让你打开数据库连接，并通过发送 SQL 或数据库命令，然后通过 Java 接收结果。
+java.sql 包中附带的 JDK，包含了定义各种类与他们的行为和实际实现，这些类都在第三方驱动程序中完成。第三方供应商在他们的数据库驱动程序中都实现了 java.sql.Driver 接口。
+
+DBC 驱动程序的实现，因为各种各样的操作系统和 Java 运行在硬件平台的不同而不同。Sun 公司将实现类型分为四类：类型1，2，3，4，其解释如下-
+
+类型1：JDBC-ODBC 桥驱动程序：
+类型2：JDBC-Native API
+类型3：JDBC-Net 纯 Java
+类型4：100％纯 Java
+如果你正在访问一个数据库，如 Oracle，Sybase 或 IBM，首选的驱动程序是类型4。
+如果你的 Java 应用程序同时访问多个数据库类型，类型3是首选的驱动程序。
+
+
+
 1.注册驱动 (只做一次)
 　　方式一：Class.forName(“com.MySQL.jdbc.Driver”);
 　　推荐这种方式，不会对具体的驱动类产生依赖。

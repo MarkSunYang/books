@@ -1,0 +1,18 @@
+参考:
+
+https://www.cnblogs.com/xiaozhi_5638/p/4259115.html   
+https://www.codeproject.com/Articles/9538/Exception-Handling-Best-Practices-in-NET#Don%27tthrownewException%28%297
+
+计划最糟糕的
+1). 尽早检查
+2). 不要相信外部数据
+
+代码安全
+1).不要抛出先的Exception
+Exception过于宽泛，尽量的派生自己的异常类
+
+2). 不要在消息字段中输入重要的异常信息
+
+3).每个线程放一个catch（Exception ex）
+
+

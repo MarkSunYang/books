@@ -1,0 +1,8 @@
+1.使用java.util.Properties类的load()方法
+2.使用java.util.ResourceBundle类的getBundle()方法
+3.使用java.util.PropertyResourceBundle类的构造函数
+4.使用class变量的getResourceAsStream()方法
+5.使用class.getClassLoader()所得到的java.lang.ClassLoader的getResourceAsStream()方法
+6.使用java.lang.ClassLoader类的getSystemResourceAsStream()静态方法
+
+

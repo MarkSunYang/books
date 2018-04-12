@@ -1,0 +1,25 @@
+MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置（settings）和属性（properties）信息。文档的顶层结构如下：
+
+configuration 配置
+
+properties 属性
+如果属性在不只一个地方进行了配置，那么 MyBatis 将按照下面的顺序来加载：
+然后根据 properties 元素中的 resource 属性读取类路径下属性文件或根据 url 属性指定的路径读取属性文件，并覆盖已读取的同名属性。
+最后读取作为方法参数传递的属性，并覆盖已读取的同名属性。
+
+
+setting 属性
+
+typeAliases 类别设置
+
+typeHandlers 类型处理器
+
+objectFactory 对象工厂
+
+plugins 插件
+
+environments 环境
+
+databaseIdProvider 数据库厂商标识
+
+mappers 映射器

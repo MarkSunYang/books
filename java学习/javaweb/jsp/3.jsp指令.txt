@@ -1,0 +1,26 @@
+JSP指令（directive）是为JSP引擎而设计的，它们并不直接产生任何可见输出，而只是告诉引擎如何处理JSP页面中的其余部分。
+在JSP 2.0规范中共定义了三个指令：
+page指令
+Include指令
+taglib指令
+
+JSP指令的基本语法格式：<%@ 指令 属性名="值" %>
+如果一个指令有多个属性，这多个属性可以写在一个指令中，也可以分开写。
+例如：
+<%@ page contentType="text/html;charset=gb2312"%>
+<%@ page import="java.util.Date"%>
+
+也可以写成
+<%@ page contentType="text/html;charset=gb2312" import="java.util.Date"%>
+
+二、Page指令
+　　page指令用于定义JSP页面的各种属性，无论page指令出现在JSP页面中的什么地方，它作用的都是整个JSP页面，为了保持程序的可读性和遵循良好的编程习惯，page指令最好是放在整个JSP页面的起始位置。例如：
+
+2.1、page指令的import属性
+
+
+
+
+
+
+

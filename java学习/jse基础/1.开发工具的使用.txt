@@ -59,3 +59,9 @@ https://blog.csdn.net/projectNo/article/details/76499374
 待续~~
 
      
+2. IDEA的使用
+2.1. psvm  main 方法的快速打印
+
+2.2 方法体快速使用for
+
+2.3 sout 快速 System.out.println()

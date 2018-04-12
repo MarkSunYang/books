@@ -1,0 +1,5 @@
+JDBC异常处理与Java异常处理非常相似，但对于JDBC，要处理的最常见异常是java.sql.SQLException。
+
+驱动程序和数据库都会发生异常，JDBC最常见的异常是java.sql.SQLException。
+
+驱动程序和数据库中都会发生SQLException。 发生这种异常时，SQLException类型的对象将被传递给catch子句。

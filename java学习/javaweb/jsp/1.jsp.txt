@@ -1,0 +1,18 @@
+web服务器调用jsp，会给jsp提供java哪些对象
+
+NO.	内置对象	类型
+1	pageContext	javax.servlet.jsp.PageContext
+2	request	javax.servlet.http.HttpServletRequest
+3	response	javax.servlet.http.HttpServletResponse
+4	session	javax.servlet.http.HttpSession
+5	application	javax.servlet.ServletContext
+6	config	javax.servlet.ServletConfig
+7	out	javax.servlet.jsp.JspWriter
+8	page	java.lang.Object
+9	exception	java.lang.Throwable
+
+application = pageContext.getServletContext();
+config = pageContext.getServletConfig();
+session = pageContext.getSession();
+out = pageContext.getOut();
+

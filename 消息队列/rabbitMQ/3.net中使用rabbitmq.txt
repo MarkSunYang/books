@@ -1,0 +1,33 @@
+
+http://www.cnblogs.com/stulzq/p/7551819.html
+
+1.定义生产者
+1).创建连接工厂
+2).创建连接
+3).创建通道
+4).声明一个队列
+5).发布消息
+
+2.定义消费者
+1).创建连接工厂
+2).创建连接
+3).事件基本消费
+4).接收到消息事件
+5).确认消息已经被消费
+
+
+使用RabbitMq的Exchange
+RabbitMQ生产者将消息发送到Exchange交换器，由Exchange将消息路由到一个或多个Queue中
+AMQP协议中的核心思想就是生产者和消费者隔离，生产者从不直接将消息发送给队列。
+生产者通常不知道是否一个消息会被发送到队列中，只是将消息发送到一个交换机。
+先由Exchange来接收，然后Exchange按照特定的策略转发到Queue进行存储。
+同理，消费者也是如此。Exchange 就类似于一个交换机，转发各个消息分发到相应的队列中。
+
+RabbitMQ 提供了四种Exchange模式，direct,fanout,topic,header
+
+1).Direct Exchage模式
+所有发送到Direct Exchange的消息被转发到具有指定RouteKey的Queue。
+Direct模式,可以使用rabbitMQ自带的Exchange：default Exchange 。所以不需要将Exchange进行任何绑定(binding)操作 。
+消息传递时，RouteKey必须完全匹配，才会被队列接收，否则该消息会被抛弃。
+
+

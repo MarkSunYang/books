@@ -1,0 +1,13 @@
+centos的安装
+contos 7(64.bit) centos6.5 64bit
+
+本机电脑是centos的6.5
+
+https://www.mtyun.com/library/how-to-install-docker-on-centos
+
+安装好之后，
+启动:service docker start
+查看docker版本 docker -v
+
+docker run hello-world 运行helloworld demo
+

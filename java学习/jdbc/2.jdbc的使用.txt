@@ -26,23 +26,78 @@ DBC 驱动程序的实现，因为各种各样的操作系统和 Java 运行在�
 
 
 1.注册驱动 (只做一次)
-　　方式一：Class.forName(“com.MySQL.jdbc.Driver”);
-　　推荐这种方式，不会对具体的驱动类产生依赖。
-　　方式二：DriverManager.registerDriver(com.mysql.jdbc.Driver);
-　　会造成DriverManager中产生两个一样的驱动，并会对具体的驱动类产生依赖。
+通常来说，注册驱动的方式有三种，
+　　1.1 DriverManager.registerDriver()
+
+    1.2 setProperty()
+
+    1.3 Class.forName
 
 2.建立连接
 Connection conn = DriverManager.getConnection(url, user, password);
 
 3.创建执行SQL语句的statement
-//Statement  
-String id = "5";
-String sql = "delete from table where id=" +  id;
-Statement st = conn.createStatement();  
-st.executeQuery(sql);  
-//存在sql注入的危险
-//如果用户传入的id为“5 or 1=1”，那么将删除表中的所有记录
+
+3.1 Statement
+用于对数据库进行通用访问，在运行时使用静态SQL语句时很有用。 Statement接口不能接受参数。
+在创建一个Statement对象后，可以使用它来执行一个SQL语句，他有三个方法可以执行，分别是
+1).boolen excute(String sql) 如果可以检索到ResultSet对象，则返回一个布尔值true，否则返回false，使用此方法执行SQL
+DDL 语句或需要真正的动态SQL，可使用于执行创建数据库操作，创建表的SQL语句等
+
+2).int excuteUpdate(String sql) 
+返回受SQL语句执行影响的行数，使用此方法执行预期会影响多行的SQL语句，例如Insert update 或delete
+
+3).ResultSet excuteQuery(String sql) 返回一个ResultSet对象，获取结果集
+
+3.2 
+1).关闭Statement
+就像关闭一个Connection对象，以保存数据库资源一样，同样的原因，还应该关闭Statement对象
+一个简单的调用close()放啊执行该作业，如果先关闭Connection对象他也会关闭Statement对象，但是始终应该显示的关闭Statement对象
+rs.close();
+stmt.close();
+conn.close();
+
+2).关闭PreparedStatement对象
+
+
+3.2 PreparedStatement 
+当计划要多次使用SQL语句时使用。PreparedStatement接口在运行时接受输入参数。
+
+3.3 CallableStatement 
+当想要访问数据库存储过程时使用。CallableStatement接口也可以接受运行时输入参数。
+
+3.4 CRUD操作
+    Statement版本 
+    1).缺点执行时发送sql，影响效率
+    2).同样的sql每次都要发送，不能进行有效的缓存，浪费资源
+    3).不能有效的防止sql注入
+    4).拼接sql字符串容易出错
+为了解决上述问题，我们引入一个新的接口PreparedStatement，该接口是Statement的子接口，
+他们的区别是执行sql之前准备好sql语句，将其中的条件通过，并进行站位，还有个好处就是同样的sql会被
+PreparedStatement有效的缓存，也就是说，数据库会减少校验的过程，减少消耗，
+
 
 4.处理执行结果(ResultSet)
+ResultSet 接口的方法可以分为三类 
+1).浏览方法 用于光标
+2).获取方法 用于查看光标指向的当前行的列中的数据
+3).更新方法 用于更新当前列中的数据
 
 5.释放资源
+资源的释放是一层一层的释放从最里层到最外层
+
+6.JDBC 事物 
+如果JDBC连接处于自动提交模式，默认情况下，则每个SQL语句在完成后都会提交到数据库。
+对于简单的应用程序可能没有问题，但是有三个原因需要考虑是否关闭自动提交并管理自己的事务 -
+1).提高性能
+2).保持业务流程的完整性
+3).使用分布式事务
+
+conn.setAutoCommit(false);
+可以在代码，配置文件，mysql数据库中三种方式修改
+
+完成更改后，若要提交更改，那么可在连接对象上调用commit()方法，如下所示：
+conn.commit( );
+
+否则，要使用连接名为conn的数据库回滚更新，请使用以下代码 -
+conn.rollback( );

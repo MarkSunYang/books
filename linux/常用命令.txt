@@ -1,0 +1,64 @@
+列出已有的常用命令
+ls 
+cd 
+cat 
+kill 9
+sudo su/i/-
+mkdir
+
+bash和user  command 的区别
+
+
+1.man + 命令 例如 man ls 可以查看该命令的详细使用方法
+name ls   user commands 
+name  list directory contents
+description:...
+
+2.pwd
+print working directory 打印当前工作目录
+
+3.cd 
+change directory 改变目录：参数如下
+cd ~ 回到登录目录
+cd / 系统的根目录
+cd /root 
+cd /home
+cd .. 回到上级目录
+
+4 ls 命令
+list ls - list directory contents
+-a 列举所有文件，包括隐藏文件
+-l 列举文件目录内容的细节，包括读取权限 大小，所有者 创建日期 等
+
+5.locate
+知道文件或目录存在，但是不知道到哪儿去找他，可以用locate命令来 查找
+locate + 文件名称
+比如我们装了redis   :  locate redis
+locate 命令使用数据库来定位文件或目录名中带有 finger 这个词的文件和目录。这个搜寻结果可能会包括一个
+叫做 finger.txt 的文件，一个叫做 pointerfinger.txt 的文件，一个被命名为 fingerthumbnails 的目录，诸如此类
+
+6.clear 
+claer 清楚终端窗口命令
+
+7.cat
+
+8. head 
+head -line filename
+比如我要查看redis.conf的前十行   head -10 
+相反命令 tail 查看 尾行
+
+9.grep命名
+
+10.chmod
+
+11.mv 
+
+12.mkdir
+
+13.rm 
+
+
+
+
+
+

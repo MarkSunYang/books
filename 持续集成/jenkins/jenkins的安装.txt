@@ -1,0 +1,3 @@
+https://www.cnblogs.com/yangcb/p/5852380.html
+
+遇到问题，java 8 的问题调整 jdk jre顺序即可

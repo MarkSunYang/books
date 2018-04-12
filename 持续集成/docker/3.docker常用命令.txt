@@ -1,0 +1,45 @@
+
+1.输入docker 可以查看所有命令
+
+2.docker images 列出本地主机上的镜像
+REPOSITORY：表示镜像的仓库源
+TAG：镜像的标签
+IMAGE ID：镜像ID
+CREATED：镜像创建时间
+SIZE：镜像大小
+
+同一个仓库源可以有多个TAG,代表这个仓库源的不同版本，
+
+3.docker pull  获取一个新的镜像
+当我们在本机上使用一个不存在的镜像，Docker就会自动下载这个镜像，如果我们想预先下载这个镜像
+我们可以通过docker pull 来获取他
+
+docker pull [option] [docker registry地址[:端口号]]
+
+4.查找镜像
+eg:docker search httpd
+Using default tag:latest
+latest: Pulling from library/httpd
+
+
+
+5. 启动容器
+docker run <相关参数> <镜像 ID> <初始命令>
+-i 表示以 交互模式 运行容器
+-t 表示容器启动后会进入其命令
+-v 表示需要将本地哪个目录挂在到容器中 格式 :-v<宿主机目录>:<容器目录>
+
+
+10 查看所有在运行的容器
+docker ps 查看所有在运行的容器
+docker ps -a 查看容器
+docker ps -a -q 查看所有容器ID
+
+11 停止和删除容器 
+docker stop  ID
+docker rm  ID
+
+
+12.退出容器 
+exit
+

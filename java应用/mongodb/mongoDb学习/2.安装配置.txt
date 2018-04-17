@@ -1,0 +1,11 @@
+1.window的安装配置
+
+下载解压 
+运行服务：
+mongod.exe --dbpath="D:\Tools\MongoDB\Server\data" --logpath="D:\Tools\MongoDB\Server\log\mongodb.log" --port=27017 
+
+身份验证登录：
+mongo --port 27017 -u "userAdmin" -p "123" --authenticationDatabase "admin"
+也可以使用客户端工具
+
+加入环境变量后可以直接 使用mongo命令操作

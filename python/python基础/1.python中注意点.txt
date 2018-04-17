@@ -1,0 +1,5 @@
+1. import 和 fomr import的区别
+import 是一如整个包，
+如果不加模块名限定会出现错误：TypeError: 'module' object is not callable \ AttributeError: 'module' object has no attribute 'now'
+from import 是导入包里的某个类
+

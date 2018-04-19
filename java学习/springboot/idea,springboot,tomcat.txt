@@ -1,0 +1,21 @@
+1.准备工作：
+Idea ->Spring Initializr default web 项目-> 
+完成项目之后发布war包
+    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<!--<scope>provided</scope>-->
+    </dependency>
+调试的时候不需要<scope>provided</scope> 这个节点，发布的时候需要注释这个节点
+
+注意开发的JDK版本和服务器JDK的版本
+如果版本不对会报如下错误：
+org/springframework/web/SpringServletContainerInitializer : Unsupported major.minor version 52.0
+
+2.tomcat配置
+将打包好的war包放到 webapps目录下
+修改server.conf,在HOST节点下加入
+ <Context docBase="demo.war" path="/" debug="0" reloadable="true" 
+                privileged="true" />
+保存退出，
+启动tomcat服务

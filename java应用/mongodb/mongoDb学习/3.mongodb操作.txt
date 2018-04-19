@@ -43,8 +43,7 @@ writeConcern :可选，抛出异常的级别。
 
 先插入一条数据
 db.col.insert({
-    title: 'MongoDB 教程', 
-    likes: 100
+    "firstName": "sun", "lastName": "mark"
 })
 接着根据update()方法来更新title
 db.col.update({'title':'MongoDB 教程'},{$set:{'title':'MongoDB'}})

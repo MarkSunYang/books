@@ -8,4 +8,24 @@ mongod.exe --dbpath="D:\Tools\MongoDB\Server\data" --logpath="D:\Tools\MongoDB\S
 mongo --port 27017 -u "userAdmin" -p "123" --authenticationDatabase "admin"
 也可以使用客户端工具
 
+角色配置
+https://blog.csdn.net/ling811/article/details/56844395
+
 加入环境变量后可以直接 使用mongo命令操作
+
+
+解压安装配置：
+centos 配置
+
+etc/mongod.conf的配置文件
+dbpath=/usr/local/mongodb3.6.4/data
+logpath=/usr/local/mongodb3.6.4/log/mongodb.log
+bind_ip=0.0.0.0
+logappend=true
+port=27017
+fork=true
+auth=true
+
+启动命令
+路径：/usr/local/mongodb3.6.4/bin
+命令 ./mongod -f /etc/mongod.conf 

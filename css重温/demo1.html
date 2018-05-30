@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <title>css</title>
+    <script> </script>
+    <style>
+        body {
+            border: 1px solid #ccc;
+        }
+
+        #name {
+            padding: 10px;
+            background: tan;
+            font-size: 18px;
+            border-left: solid #42A948;
+            /* green */
+            width: 230px;
+            box-sizing: border-box;
+        }
+
+        #age {
+            padding: 10px;
+            background: tan;
+            font-size: 18px;
+            border-left: solid #42A948;
+            /* green */
+            width: 230px;
+            box-sizing: content-box;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        #div1 {
+            background-color: red;
+            margin-bottom: 30px;
+        }
+
+        #div2 {
+            background-color: yellow;
+            margin-top: 20px;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #div4 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+
+        #div6 {
+            height: 100px;
+            width: 100px;
+            background: yellow;
+           position: relative;
+        }
+
+        #div7 {
+            width: 20px;
+            height: 20px;
+            background: #42A948;
+           
+        }
+
+        #div8 {
+            width: 20px;
+            height: 20px;
+            background:blueviolet;
+            position: absolute;
+            left: 10px;
+            /* z-index: 3; */
+        }
+
+        #div9 {
+            width: 20px;
+            height: 20px;
+            background:red;
+             /* position: relative; */
+            /* z-index: 3; */
+        }
+
+        #div10{
+            position: fixed;
+            background: #42A948;
+            top: 10px;
+            right: 10px;
+            
+        }
+    </style>
+</head>
+
+<body>
+<div id="div10"></div>
+    <input id="name" placeholder="name">
+    <br>
+    <input id="age" placeholder="age">
+    <!-- <div>
+        <div id="div1">
+            11
+        </div>
+        <div id="div2">
+            11
+        </div>
+    </div> -->
+
+    <br />
+    <div id="div3">
+        <div id="div4">内部</div>
+    </div>
+    <div id="div5">display: none;</div>
+    <p>1</p>
+    <span style="display: block;">11</span>
+    <span style="display: inline;">11</span>
+    <p>2</p>
+
+    <div id="div6">
+        <div id="div7">
+            1
+        </div>
+        <div id="div8">
+            2
+        </div>
+        <div id="div9">
+            3
+        </div>
+    </div>
+<!-- 
+    1.因为div是块级元素，没有定位的情况下都会换行显示
+    2.将div8换成相对定位
+
+-->
+
+
+
+</body>
+
+</html>

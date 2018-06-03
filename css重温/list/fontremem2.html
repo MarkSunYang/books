@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+        rem 是全部的长度都相对于根元素，<html>元素。
+        通常做法是html元素设置一个字体大小，然后其他元素的长度单位就为rem，
+
+        html的font是10px->chrom里面默认12 
+
+        div 的 font-size:48px; width,height:360px;
+        p 的font-size 24px  width,height 180px;
+        span font-size 18px width,heigt 150px
+        */
+
+        html {
+            font-size:62.5%;/*chrom 默认显示 12px*/
+        }
+
+        div {
+            font-size: 4rem;
+            width: 30rem;
+            height: 30rem;
+            border: solid 1px black;
+        }
+
+        p {
+            font-size: 2rem;
+            width: 15rem;
+            height: 15rem;
+            border: solid 1px red;
+        }
+
+        span {
+            font-size: 1.5rem;
+            width: 10rem;
+            height: 10rem;
+            border: solid 1px blue;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        我是父元素div
+        <p>
+            我是子元素p
+            <span>我是孙元素span</span>
+        </p>
+    </div>
+
+</body>
+
+</html>

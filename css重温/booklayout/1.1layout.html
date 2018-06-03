@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 
+        1.设计一个容器元素，包含了页眉，内容，页脚
+        2.使用外边距让设计居中
+        3.基于浮动的布局，float:left;
+        css布局有几种：包括绝对定位和使用负的外边距值(margin-left:-100%)
+        基于浮动的布局是最容易使用的，也是最可靠的，在基于浮动的布局中，
+        只需要设置希望定位的元素的宽度，然后将他们向左右浮动
+        因为浮动的元素不再占据文档流中的任何空间，他们就不再对包围他们的块产生任何影响
+        为了解决这个问题，需要对布局中各个点上的浮动元素进行清理
+        */
+
+        .wapper {
+            margin: 0 auto;
+            width: 920px;
+        }
+
+        .header {
+
+            background: red;
+        }
+
+        .content {
+
+            background: green;
+        }
+
+        .footer {
+
+            background: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wapper">
+
+        <div class="header">header</div>
+        <div class="content">content</div>
+        <div class="footer">footer</div>
+    </div>
+
+</body>
+
+</html>

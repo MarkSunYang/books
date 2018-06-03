@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main,
+        .sitebar {
+            font: bolder 20px/300px;
+        }
+
+        .main {
+            width: 100%;
+            float: left;
+        }
+
+        .main .content {
+            margin-left: 200px;
+            background-color: red;
+        }
+
+        .sitebar {
+            width: 200px;
+            float: left;
+            background-color: green;
+            margin-left: -100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">右侧主体自适应区块</div>
+    </div>
+    <div class="sitebar">左侧定宽200px区块</div>
+</body>
+
+</html>

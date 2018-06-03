@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .content {
+            flex: 1;
+            background-color: red;
+        }
+
+        .sitebar {
+            flex: 0 0 200px;
+            order: -1;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">右侧主体自适应区块</div>
+        <div class="sitebar">左侧定宽200px区块</div>
+    </div>
+</body>
+
+</html>

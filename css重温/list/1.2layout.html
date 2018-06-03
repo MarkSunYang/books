@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+     
+        /*
+        我的chrom默认字体是16，因为em是根据上一级的font-size去确定当前的带em单位元素大小
+        
+        创建基本的垂直导航条
+        1.去掉margin，padding
+        2.display:block;
+
+        */
+        html{
+            font-size:16px;
+        }
+
+
+        ul.nav{
+            margin: 0px;
+            padding: 0px;
+            width: 8em;
+            background: burlywood;
+            border: 1px solid #486B02;
+            list-style-type: none;
+        }
+
+        ul.nav  a{
+            display: block;
+            color: #2B3F00;
+            text-decoration: none;
+            border-top: 1px solid #E4FFD3;
+            border-bottom: 1px solid #486B02;
+            background: url(../images/title.png) no-repeat  0 50%;
+            padding-left:1em;
+        }
+        ul.nav .last a{
+            border-bottom: 0;
+        }
+
+        ul.nav a:hover,
+        ul.nav a:focus,
+        ul.nav .selected a{
+            color: #E4FFD3;
+            background: #6DA203;
+        }
+        
+
+        .div1{
+            width: 400px;
+            height: 200px;
+            margin: 20px;
+            background: #486B02;
+            position: relative;
+        }
+
+        /*
+            1. 无法改变width,height
+            2. maring的 top和bottom属性也无效
+         
+        */
+        .my-inline{
+            background: red;
+            display: inline;
+        }
+
+
+        .div2{
+            width: 400px;
+            height: 200px;
+            margin: 20px;
+            background: #486B02;
+            position: relative;
+        }
+
+        .myblock{
+            background: red;
+            display: block;
+        }
+    </style>
+</head>
+
+<body id="home">
+    <div>
+   <ul class="nav">
+       <li><a href="#">Home</a></li>
+       <li><a href="#">About</a></li>
+       <li><a href="#">Our Service</a></li>
+       <li><a href="#">Our Work</a></li>
+       <li><a href="#">News</a></li>
+       <li class="last"><a href="#">Contact</a></li>
+   </ul>
+
+   <div class="div1">
+       <div  class="my-inline">1112</div>  <div  class="my-inline">1112</div>
+   </div>
+
+   <div class="div2">
+        <span  class="myblock">1112</span>  <span  class="myblock">1112</span>
+    </div>
+</body>
+
+</html>

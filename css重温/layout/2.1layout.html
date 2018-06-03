@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main,
+        .left,
+        .right {
+            height: 300px;
+            font: 20px/300px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .main {
+            width: 100%;
+            float: left;
+        }
+
+        .main .content {
+            margin: 0 300px 0 200px;
+            background-color: black;
+        }
+
+        .left {
+            width: 200px;
+            float: left;
+            margin-left: -100%;
+            background-color: red;
+        }
+
+        .right {
+            width: 300px;
+            float: left;
+            margin-left: -300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">中间主体区域宽度自适应</div>
+    </div>
+    <div class="left">左侧定宽200px</div>
+    <div class="right">右侧定宽300px</div>
+</body>
+
+</html>

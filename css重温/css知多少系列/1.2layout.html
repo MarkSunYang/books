@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>demo</title>
+    <style type="text/css">
+        /*
+            伪元素
+         */
+
+        p::before {
+            content: '想做个好人的'
+        }
+
+        p::after {
+            content: '想做个好人'
+        }
+
+
+        /*
+        1.先画一个正方形
+        2.通过before 或者after变出一个尖角，放到正方形右上角
+        border-width: border-height : border-color
+        3.可以根据border的border-top等四个属性画出不同颜色的边框
+        4.将height和width设置0可以看见彩色正放形
+        5.可以将上下他的边框设置成透明，这样就会有
+
+
+        原理，使用before添加连个颜色区域块，一个透明，一个不透明
+
+        */
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border: 2px rgb(31, 197, 86) solid;
+            border-radius:10px;
+            position: relative;
+        }
+
+      
+        /*先画出一个三角形*/
+        #demo::before{
+            content: '';
+            width: 0px;
+            height: 0px;
+            border:20px solid transparent;/*border设置成透明，但是右边border设置成红色*/
+            border-left-color: rgb(55, 82, 235) ;
+            top: 10px;
+            left: 100%;
+            position: absolute;
+        }
+
+        /*用透明三角形去覆盖这个三角形*/
+        #demo::after{
+            content: '';
+            width: 0px;
+            height: 0px;
+            border:18px solid transparent;
+            border-left-color: white ;
+            top: 12px;
+            left: 100%;
+            position: absolute;
+        }
+
+    </style>
+</head>
+
+<body>
+    <P>我</P>
+
+
+    <div id="demo">
+        hello world!
+    </div>
+
+
+</body>
+
+</html>

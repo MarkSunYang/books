@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>demo</title>
+        <style type="text/css">
+            #demo 
+            {
+                width: 100px;
+                height: 100px;
+                background-color: #fff;
+                position: relative;
+                border: 2px solid #000;
+            }
+             
+            #demo:before, #demo:after
+            {
+                 border: solid transparent;
+                content: ' ';
+                height: 0px;
+                width: 0px;
+                left: 100%;
+                position: absolute;
+            }
+            #demo:before {
+                border-width: 12px;
+                border-left-color: #000;
+                top: 18px;
+               
+            }
+             #demo:after
+            {
+                top: 20px;
+                border-width: 10px;
+                border-left-color: #fff;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div id="demo">
+
+    </div>
+    </body>
+</html>

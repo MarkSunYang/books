@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*
+    1.子元素字体大小的em是相对于父元素字体大小
+    2.元素的width/height/padding/margin用em的话是相对于该元素的font-size
+ 
+        1).div的font-size是40px 所以10em=400px 所以长和宽是400px;
+        2).p标签的font-size是父元素的font-size,所以p的font-size是20px，p的width和height是200px
+        3).span的font-size是0.5*20px=10，所以span的font-size=10px 所以width和height是100px
+        然而，chorm最小的字体是12px，所以这里的span的p是12px所以height和width是120px
+    */
+
+        div {
+            font-size: 40px;
+            width: 10em;
+            height: 10em;
+            border: solid 1px black;
+        }
+
+        p {
+            font-size: 0.5em;
+            width: 10em;
+            height: 10em;
+            border: solid 1px red;
+        }
+
+        span {
+            font-size: 0.5em;
+            width: 10em;
+            height: 10em;
+            border: solid 1px blue;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        我是父元素div
+        <p>
+            我是子元素p
+            <span>我是孙元素span</span>
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+
+        /*
+            这个栗子中，函数displayInfo接受一个名为args的参数，这个参数可能带有一个名称为name或者age的属性，
+            也坑内这两属性都没有，在这个函数内部，我们可以通过typeof操作来检测每个属性是否依然存在，然后基于相应的属性来显示信息
+            
+        */
+        function displayInfo(args){
+            var output="";
+            if(typeof args.name=="string"){
+                output += "name: " + args.name+"\n";
+            }
+            if(typeof args.age =="number"){
+                output +="age: " +args.age+"\n";
+            }
+            console.log(output);
+        }
+        displayInfo({
+            name:"Mark",
+            age:27
+        });
+    
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

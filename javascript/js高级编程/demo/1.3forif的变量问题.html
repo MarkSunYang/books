@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+        /* 
+            js没有块级作用域，所以 color的值是blue
+            i的值是10
+            对于有作用域的语言for语句初始化变量的表达式所定义的变量，所以会在循环的环境中，
+            对于js而言，for语句创建的变量经过循环结束后，也以依旧存在循环外部环境中
+        */
+        if(true){
+            var color="blue";
+
+        }
+        console.log(color);
+    
+        for(var i=0;i<10;i++){
+            
+        }
+        console.log(i);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作用域链</title>
+
+    <script>
+
+        var anOthercolor = "red";//全局变量
+
+        function changeColors() {
+            var anOthercolor = "blue";
+
+            function swapColors() {
+                var tempColor = anOthercolor;
+                anOthercolor = color;
+                color = tempColor;
+                //这里可以访问color，anotherColor，tempColor
+            }
+            //这里可以访问color和anotherColor但不能当问tempColor
+            swapColors();
+        }
+        //这里只能访问color
+        changeColors();
+
+        /*
+            以上代码共涉及3个执行环境: 全局环境， changeColors() 的局部环境和swapColor()的局部环境，
+            全局环境中有一个变量color和一个函数 changeColors()
+            changeColors()的局部环境中有一个名为anotherColor的变量和swapColors()的函数，但是他可以访问全局变量中的变量
+            swapcolors()的局部环境中有一个变量tempcolor，这个变量只能在这个环境中访问到，无论是全局还是changeColor
+            局部环境都无法访问tempcolor
+            window
+                |_color
+                |_changeColors()
+                            |____anotherColor
+                            |____swapColors()
+                                    |_________tempColor
+            内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数
+            
+        */
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            width: 50%;
+            border-collapse: collapse;
+            border: 1px solid gray;
+        }
+
+        table td,
+        th {
+            font-size: 1em;
+            border: 1px solid #97a07a;
+            padding: 3px 7px 2px 7px;
+        }
+    </style>
+
+
+    <script>
+        /*
+        购物车
+        1.改变数量，小计和总计的数量改变
+        2.删除
+        3.全选 
+        */
+
+
+        /*
+            name=value[;expires=date][;path=path-to-resource][;domain=域名][;secure]
+            增加或者修改cookie
+            参数：o 对象{}
+            name:string cookie名
+            value:string cookie值
+            expires:Date对象 过期时间
+            path:string 路径限制
+            domain:string 域名限制
+            secure:boolean  true https  false或undeinfed 
+        */
+        var cookieObj = {
+            //增加对象
+            set: function (o) {
+                var cookieStr = encodeURIComponent(o.name) + "=" + encodeURIComponent(o.value);
+                if (o.expires) {
+                    cookieStr += ";expires=" + o.expires;
+                }
+                if (o.path) {
+                    cookieStr += ";path=" + o.path;
+                }
+                if (o.domain) {
+                    cookieStr += ";domain=" + o.domain;
+                }
+                if (o.secure) {
+                    cookieStr += ";secure";
+                }
+
+                document.cookie = cookieStr;
+            },
+            //删除
+            del: function (n) {
+                var date = new Date();
+                date.setHours(-1);
+                //this代表的是当前函数的对象
+                this.set({
+                    name: n,
+                    expires: date
+                });
+            },
+            //查找
+            get: function (n) {
+                n = encodeURIComponent(n);
+                var cooikeTotal = document.cookie;
+                var cookies = cooikeTotal.split("; ");
+                for (var i = 0, len = cookies.length; i < len; i++) {
+                    var arr = cookies[i].split("=");
+                    if (n == arr[0]) {
+                        return decodeURIComponent(arr[1]);
+                    }
+                }
+            }
+        }
+
+
+        var product ={};
+        product.name = "杯子";
+        product.price = 100;
+        product.amount = 10;
+        
+        var productArr=[];
+        productArr.push(product);
+
+        var mycookie={};
+        mycookie.name="product";
+        mycookie.value=productArr;
+        cookieObj.set(mycookie);
+
+    </script>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <th>
+                <input type="checkbox" /> </th>
+            <th>序号</th>
+            <th>名称</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" /> </td>
+                <td>1</td>
+                <td>mac</td>
+                <td>
+                    <input type="button" value="-" />
+                    <input value="1" />
+                    <input type="button" value="+" />
+                </td>
+                <td>12000</td>
+                <td>删除</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" /> </td>
+                <td>2</td>
+                <td>thinkpad</td>
+                <td>
+                    <input type="button" value="-" />
+                    <input value="1" />
+                    <input type="button" value="+" />
+                </td>
+                <td>12000</td>
+                <td>删除</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" /> </td>
+                <td>3</td>
+                <td>Hp</td>
+                <td>
+                    <input type="button" value="-" />
+                    <input value="1" />
+                    <input type="button" value="+" />
+                </td>
+                <td>12000</td>
+                <td>删除</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+
+
+</body>
+
+</html>

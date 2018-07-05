@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+
+        window.color = "red";
+        var o = { color: "blue" };
+        function sayColor() {
+            console.log(this.color);
+        }
+        sayColor();
+        o.sayColor = sayColor;
+        o.sayColor();
+
+
+
+        function outer() {
+            inner();
+        }
+
+        function inner() {
+            console.log(inner.caller);
+        }
+
+        outer();
+
+
+
+        function sayName(name){
+            console.log(name);
+        }
+
+        function sum(num1,num2){
+            return num1+num2;
+        }
+
+
+        function factrial(num) {
+            if (num < 1) {
+                return 1
+            } else {
+                return num * factrial(num - 1);
+            }
+        }
+
+        function method2(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                return num * arguments.callee(num - 1);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

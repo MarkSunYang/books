@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var person = {
+            name: "Mark"
+        };
+
+        Object.defineProperty(person, "age", {
+            writable: false,
+            configurable: false,
+            value: 19
+        });
+
+        console.log(person);
+        delete person.age;
+        person.age = 20;
+        person.name = "Mat";
+        console.log(person);
+
+        var book = {
+            _year: 2004,
+            edition: 1
+        };
+
+        Object.defineProperty(book, "year", {
+            get: function () {
+                return this._year;
+            },
+            set: function (newvalue) {
+                this._year = newvalue;
+                this.edition += newvalue - 2002;
+            }
+        });
+
+        book._year = 2005;
+        console.log(book.edition);
+
+        //1. 工厂模式  使用一个函数去创建并返回对象
+        function createPerson(name, age) {
+            var o = new Object();
+            o.name = name;
+            o.age = age;
+            o.Print = function () {
+                console.log("name: " + this.name + " age: " + this.age);
+            };
+            return o;
+        }
+
+        var person = createPerson("Malik", 19);
+        person.Print();
+
+        //2. 构造函数模式 
+        function Person1(name, age) {
+            this.name = name;
+            this.age = age;
+            this.Print = function () {
+                console.log("name: " + this.name + " age: " + this.age);
+            }
+        }
+
+        var p1=new Person1("Mark",20);
+        var p2=new Person1("Malik",21);
+        
+        //p1,p2保存着不同的对象，这两个对象都有一个构造函数属性，指向Person
+        // 对象constructor属性最初是用来标识对象类型，
+        console.log("p1===p2"+p1===p2);
+        console.log("p1.constructor===p2.constructor"+p1.constructor===p2.constructor);
+        console.log(p1.constructor==Person1);
+        console.log(p1 instanceof Object);
+        console.log(p1 instanceof Person1);
+        
+
+        //构造函数方式调用
+        var p3=new Person1("Mark",11);
+
+        //普通函数调用
+         Person1("Mark",11);
+        //另一个对象作用域中调用
+        var o=new Object();
+        Person1.call(o,"Mark",19);
+
+        //3.原型模式
+        function Person2() {  }
+        Person2.prototype.name="Mark";
+        Person2.prototype.age=18;
+        Person2.prototype.Print=function(){
+            console.log("name: " + this.name + " age: " + this.age);
+        }
+        var p4=new Person2();
+        p4.Print();
+
+        //原型和构造函数结合
+
+
+
+        //继承
+        /*
+        
+        
+        */
+
+        function SuperType(){
+            this.property=true;
+        }
+
+        SuperType.prototype.getSuperTypeValue=function(){
+            return this.property;
+        }
+
+        function SubType(){
+            this.subproperty=false;
+        }
+
+        //继承了SpuerType
+        SubType.prototype=new SuperType();
+        SubType.prototype.getSubValue=function(){
+            return this.subproperty;
+        }
+
+        var instance=new SubType();
+        console.log(instance.getSuperTypeValue());
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

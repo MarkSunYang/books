@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        /*
+        html 是一个bfc，在这个容器内所有相对html元素的块级子元素都包含在这个bfc里面，他们遵循bfc特征
+
+        b.黑色均为加了浮动的盒子，外面的盒子高度过小故黑色盒子溢出来
+        d.这是一个div，加上了overflow:hidden属性，生成了一个新的bfc，这样它里面的块级元素又遵循bfc特性，相对是一个独立的空间
+
+        div.b 和 div.d的margin重叠在了一起，因为他们在一个空间
+        
+        */
+        html {
+            background-color: #009a61
+        }
+
+        .a {
+            width: 100%;
+            height: 80px;
+            background-color: #f3f3f3;
+            margin-bottom: 30px;
+        }
+
+        .b {
+            width: 100%;
+            background-color: #f3f3f3;
+            height: 40px;
+            margin-bottom: 80px;
+
+        }
+
+        .c {
+            float: left;
+            width: 80%;
+            height: 80px;
+            background-color: #333333;
+        }
+
+        .d {
+            margin-top: 80px;
+            width: 100%;
+            background-color: #f3f3f3;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a"></div>
+    <div class="b">
+        <div class="c"> </div>
+    </div>
+    <div class="d">
+        <div class="c"></div>
+    </div>
+</body>
+
+</html>

@@ -59,8 +59,101 @@ Less和Sass在语法上有些共性，比如下面这些：
 
 
 
-Less 教程
+Sass 教程
+https://www.sass.hk/guide/
+
+
+1. 使用变量
+sass让人们受益的一个重要特性就是它为css引入了变量，你可以把反复使用的css属性值 定义成变量，然后通过变量名来引用它们，而无需重复书写这一属性值。
+1.1  变量声明
+sass 使用 $ 符号来表示变量，
+eg:$highlight-color: #F90;
+和css不同，变量可以在css规则定义之外存在，当变量定义在css规则块内，那么改变辆只能在此规则块内使用，如果它们出现在任何形式的{...}块中（如@media或者@font-face块），情况也是如此：
+
+$nav-color: #F90;
+nav {
+  $width: 100px;
+  width: $width;
+  color: $nav-color;
+}
+
+//编译后
+nav {
+  width: 100px;
+  color: #F90;
+}
+
+1.2 变量的引用
+凡是css属性的标准值（比如说1px或者bold）可存在的地方，变量就可以使用。css生成时，变量会被它们的值所替代。之后，如果你需要一个不同的值，只需要改变这个变量的值，则所有引用此变量的地方生成的值都会随之改变。
+$hightlight-clolr:#f90;
+.selected{
+    border: 1px solid $highlight-color;
+}
+
+//编译后
+.selected {
+  border: 1px solid #F90;
+}
+
+1.3 变量名用中划线还是下划线分隔;
+css中重复写选择器是非常恼人的。如果要写一大串指向页面中同一块的样式时，往往需要 一遍又一遍地写同一个ID：
+#content article h1 { color: #333 }
+#content article p { margin-bottom: 1.4em }
+#content aside { background-color: #EEE }
+
+像这种情况，sass可以让你只写一遍，且使样式可读性更高。在Sass中，你可以像俄罗斯套娃那样在规则块中嵌套规则块。sass在输出css时会帮你把这些嵌套规则处理好，避免你的重复书写。
+
+#content{
+    article{
+        h1 { color: #333 }
+        p { margin-bottom: 1.4em }
+    }
+    aside { background-color: #EEE }
+}
+
+然后 #content article 里边还有嵌套的规则，sass重复一遍以上的步骤，把新的选择器添加到内嵌的选择器前边
+#content {
+  background-color: #f5f5f5;
+  aside { background-color: #eee }
+}
+一般情况下，sass在解开一个嵌套规则时就会把父选择器（#content）通过一个空格连接到子选择器的前边（article和aside）形成（#content article和#content aside）。
+
+
+2.1 父选择器的标识符&
+最常见的一种情况是当你为链接之类的元素写：hover这种伪类时，你并不希望以后代选择器的方式连接。比如说，下面这种情况sass就无法正常工作：
+article a {
+  color: blue;
+  :hover { color: red }
+}
+这意味着color: red这条规则将会被应用到选择器article a :hover，article元素内链接的所有子元素在被hover时都会变成红色。这是不正确的！你想把这条规则应用到超链接自身，而后代选择器的方式无法帮你实现。
+
+解决之道为使用一个特殊的sass选择器，即父选择器。在使用嵌套规则时，父选择器能对于嵌套规则如何解开提供更好的控制。它就是一个简单的&符号，且可以放在任何一个选择器可出现的地方，比如h1放在哪，它就可以放在哪。
+article a {
+  color: blue;
+  &:hover { color: red }
+}
+
+2-2. 群组选择器的嵌套;
 
 
 
 
+2. 嵌套css规则
+
+3. 导入Sass文件c
+css有一个特别不常用的特性，即@import规则，它允许在一个css文件中导入其他css文件。然而，后果是只有执行到@import时，浏览器才会去下载其他css文件，这导致页面加载起来特别慢。
+sass也有一个@import规则，但不同的是，sass的@import规则在生成css文件时就把相关文件导入进来。这意味着所有相关的样式被归纳到了同一个css文件中，而无需发起额外的下载请求。
+
+4.混合器
+如果你的整个网站中有几处小小的样式类似（例如一致的颜色和字体），那么使用变量来统一处理这种情况是非常不错的选择。但是当你的样式变得越来越复杂，你需要大段大段的重用样式的代码，独立的变量就没办法应付这种情况了。你可以通过sass的混合器实现大段样式的重用。
+
+
+
+
+sass 命令：
+
+监听变化：node-sass  -w -r scss -o  static/css
+
+node-sass 
+@import _buttons.scss 和 button.scss 文件的时候 
+@import 'buttons.scss' 和 @import '_buttons.scss' 效果一样

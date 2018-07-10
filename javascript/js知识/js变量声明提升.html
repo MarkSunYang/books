@@ -1,56 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-    
-    
-        /*
-        ------js for 循环的作用域
-            js中作用域只有函数作用域和全局作用域，在函数体内，使用var定义的变量，会被提到函数开始定义的地方，作为整个函数，
-        */
+        (function () {
+            for (var i = 0; i < 5; i++) {
+                setTimeout(function () {
+                    console.log(i);
+                }, 1000);
+            }
+
+        })();
+
+        (function () {
+            for (var i = 0; i < 5; i++) {
+                (function () {
+                    alert(i);
+                })();
+            }
+        })();
+
 
         /*
         2.--------------- js 没有块级作用域
         if内定义的a在全局是可以访问到的，
         */
-        if(true){
-            var a=100;
+        if (true) {
+            var a = 100;
             console.log(a);
         }
-        console.log("if是否有作用域"+a); //"if是否有作用域"+100
+        console.log("if是否有作用域" + a); //"if是否有作用域"+100
 
 
         /*
         3. ----------------- js的全局变量
         　js中规定，全局变量都可以看作是window的属性，而且全局变量能够被所有的代码块读取。
         */
-        var b=10;
+        var b = 10;
         (function test() {
-            c=20;
+            c = 20;
             console.log(b);
         })();
         console.log(c); //输出 10 20
-        
+
         /*
         4.------------------js 的局部变量
         */
-        (function dosomething(){
-            var d=10;
-            function printd(){
+        (function dosomething() {
+            var d = 10;
+            function printd() {
                 console.log(d);
             }
             printd();
         })();
-      //  console.log(d); 无法访问
-        printd();
+
+        // console.log(d); 无法访问
+        // printd();
+
+        //5.-------------js的作用域链问题
+        var name = "malik";
+        function scoap() {
+            console.log(name);
+            var name = "mark";
+            console.log(name);
+        }
+        scoap();
 
     </script>
 </head>
+
 <body>
-    
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
 </body>
+<script>
+    /*
+     ------js for 循环的作用域
+         js中作用域只有函数作用域和全局作用域，在函数体内，使用var定义的变量，会被提到函数开始定义的地方，作为整个函数，
+     */
+    window.onload = function () {
+        var ps = document.getElementsByTagName("p");
+        for (var i = 0; i < ps.length; i++) {
+            ps[i].onclick = function () {
+                alert(i);
+            }
+        }
+    }
+</script>
+
 </html>

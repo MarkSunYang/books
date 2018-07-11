@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    
+
+    //1.连接字符串
+    var str="".concat("this "," is " ," a "," test");
+    console.log(str);
+    
+    //2字符串相等比较
+    if("ABC".toLocaleLowerCase()=="abc"){
+        console.log( "转换后他们相等");
+    }else{
+        console.log( "转换后他们不相等");
+    }
+
+    var numVal=10.00;
+    if(numVal==10){
+        console.log("10.00进行了数据类型转换所以 10.00==10");
+    }
+
+
+    //严格相等
+    var strObject=new String("Mark");
+    var strLiteral="Mark";
+    if(strObject===strLiteral){
+        console.log("strObject===strLiteral");
+    }else{
+        console.log("strObject!==strLiteral");
+    }
+
+
+    //字符串定位
+    var testValue="this is the cookbook's test string";
+    var subValue="cookbook";
+    var subValue2="cookbook2";
+    console.log(testValue.indexOf(subValue));
+    console.log(testValue.indexOf(subValue2));
+
+    var testString="this apple is my apple";
+    var iValue=testString.indexOf("apple",1);
+    var iValue3=testString.indexOf("my",15);//第二个参数是开始搜的位置的索引值
+    var iValue2=testString.lastIndexOf("apple");
+    console.log(iValue+"  "+iValue3+"  "+iValue2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

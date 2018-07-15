@@ -1,4 +1,0 @@
-webpack可以将多种静态js，csss，less转换成一个静态文件，减少了页面请求。
-
-1.安装webpack前需要安装node.js,本地搞个cnpm淘宝镜像
-

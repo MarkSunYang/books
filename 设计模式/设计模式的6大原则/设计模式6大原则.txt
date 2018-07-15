@@ -1,28 +1,248 @@
-1.单一职责原则
+从面向对象的角度去理解
+
+1. 为什么我们需要接口而不是直接去写类实现？
+
+首先我们要理解什么是接口：在java编程语言中是一个抽象类型，他被用来要求类必须实现指定的方法，使不同的对象可以利用相同的界面进行沟通，
+接口通常用interface来声明，它仅能包含方法签名（Method Signature）以及常量宣告（变量宣告包含了 static 及 final），一个接口不会包含方法的实现（仅有定义）。 
+
+接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须宣告为抽象类（Abstract Class）
+
+接口被用来统一类的共通行为，当不同的类需要进行信息共享时，是不需要特别去创建类间的关系。举例来说，一个人（Human）及一只鹦鹉（Parrot）都会吹口哨（whistle），
+然而Human及Parrot不应该为Whistler的子类，最好的做法是令他们为Animal的子类，而他们可以使用Whistler的接口进行沟通
+
+
+我最初理解的接口就是
+interface ILog{
+    void logger();
+}
+
+public class TextLog:Ilog{
+    public void logger(){
+        print("TextLog")
+    }
+}
+
+public class DbLog:Ilog{
+    public void logger(){
+        print("DbLog")
+    }
+}
+
+后来我越想越不对劲，我自己写个Log为什么要用接口去实现，我自己给自己画个圈干嘛？
+写个Log类，不同方式直接写方法不就ok了吗，多一种方式，加一个方法就ok了，于是。。。
+public class Log{
+    
+    public void TextLog(){
+        print("TextLog")
+    }
+
+    public void DbLog(){
+        print("DbLog")
+    }
+
+}
+
+那我什么时候用接口，好痛苦，学了不会用
+这个时候我突然想起来 java编程思想，effective java，java核心技术
+书上是这么说的：
+接口和内部类为哦我们提供一种将接口与实现分离更加结构化的方法
+首先我们先看抽象类，他是普通类和接口之间的一种中庸知道，尽管在构建具有某些为实现的方法的时候，我们第一个想到的是创建接口，
+但是抽象类仍然是用于此目的的一种重要工具。
+
+1.1 抽象类和抽象方法
+java提供一种抽象方法的机制，这种方法是不完整的，仅有声明而没有方法体，
+采用的语法：abstract void f()
+包含抽象方法的类叫抽象类，如果一个包含一个多个抽象方法，该类必须被限定为抽象的
+如果从一个抽象类继承，冰箱创建该类的对象，那么就必须为基类中的所有抽象方法提供定义，
+如果不这样做，那么到处类便也是抽象类并且编译器将强制我们用abstract关键字来限定这个类。
+我们也可能创建一个没有任何抽象方法的抽象类，
+
+1.2interface关键字使抽象的概念向前更迈进了一步，abstract关键字允许人们在类中穿件一个或多个没有任何意义的方法，提供了接口部分
+但是没有任何提供相应的实现，这些实现是由此类的继承者创建的。
+Interface这个关键字产生一个完全抽象的类，它根本没有提供任何实现，他允许创建者确定该方法名称，参数列表和返回值类型，但是阿弥有任何方法体
+接口只提供了形式，而且未提供任何实现，
+接口不仅仅是一个极度抽象的类，因为它允许人们通过创建一个能够被向上转型为多种基类的类型，
+
+完全解耦：
+如果一个操作方法的操作是一个类而非接口，那么你只能使用这个类及其子类，
+
+
+1.3接口的特性
+接口不是类，不能用new去实例化一个接口
+
+
+1.4抽象类和接口的异同
+不同：
+a.接口是抽象方法的集合，接口中定义的方法只能在继承他的类中实现，抽象类中可以定义抽象方法和方法的实现
+b.接口不能包含静态代码块和静态方法，抽象类可以有静态代码块和静态方法
+c.一个类只能继承另一个类(抽象类也是类)，但是可以继承多个接口
+
+相同点：
+他们都不能被实例化，都是被用于其他的类去继承和实现
+
+
+内聚：是从功能角度来度量模块内的联系，一个好的内聚模块应该制作一件事，它描述模块内的功能联系
+耦合：耦合是软件结构中模块之间互相连接的一种度量，耦合成都取决于接口之间的复杂程度，进入或者访问一个模块的点以及通过数据接口的数据
+
+
+
+#---------------------------六大原则
+1.单一职责原则（Single Responsibility Principle）
+不要存在多于一个导致类变更的原因。通俗的说，即一个类只负责一项职责。
+优点：
+可以降低类的复杂度，一个类只负责一项职责，逻辑简单；
+提高类的可读性，提高系统的可维护性；
+变更引起的风险降低，变更是必然的
 
 2.里氏替换原则（Liskov Substitution Principle）
-Subtypes must be substitutable for their base types. 派生类型必须可以替换他的基类型
-
-继承提供了让子类共享基类的代码，这是通过基类型通过封装通用的数据和行为来实现的，
-
-定义1：如果每一个类型为T1的对象o1，都有类型为T2的对象o2，使得T1定义的所有程序P在所有的对象o1都代换成o2
-程序P的行为没有发生改变，那么类型T2是类型T1的子类型。
-定义2：所有引用基类的地方必须能够透明的使用子类的对象
-
-解决方法：当使用继承时，遵循里氏替换原则，类B继承类A，除了添加新的方法完成新增功能，尽量不要重写父类A的方法
-
-
-子类可以扩展父类的功能，但不能改变父类原有的功能
-
-子类可以实现父类的抽象方法，但是不能覆盖父类的非抽象方法
-子类中可以增加自己特有的方法
-当子类覆盖或实现父类的方法时，方法的前置条件（即方法的形参）要比父类方法的输入参数更宽松。
-当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）要比父类更严格。
+Subtypes must be substitutable for their base types. 
+子类可以扩展父类的功能，但不能改变父类原有的功能。
+当使用继承时，遵循里氏替换原则。子类继承父类时，除添加新的方法完成新增功能外，尽量不要重写父类的方法，也尽量不要重载父类的方法。
 
 3.依赖倒转原则（Dependence Inversion Principle）
+a.高层模块不应该依赖低层模块，二者都应该依赖其抽象；
+在层和层之间加入抽象类，低层模块依赖于高层的抽象接口
+b.抽象不应该依赖于细节，细节应该依赖于抽象
 
 4.接口隔离原则（Interface Segregation Principle）
+使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。
+
 
 5.迪米特法则（最少知道原则）（Demeter Principle）
+一个软件实体应当尽可能少地与其他实体发生相互作用。
 
-6.合成复用原则（Composite Reuse Principle）
+6. 开闭原则
+一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。
+
+
+解耦1：
+三层架构 到 Ioc框架
+三层架构 的 三层  UI用户接口  BLL业务逻辑层  DAL数据操作层  
+这三层是层层依赖的 U层依赖于B层，B层依赖于D层
+每个对象的创建可以通过工厂的方式去管理
+
+代码：
+DAL:
+public interface UserDao{
+    public void addUser(String username,String password);
+}
+
+public class UserDaoMySqlImpl UserDao{
+    @Override
+	public void addUser(String username, String password) {
+		System.out.println("UserDaoMySqlImpl.addUser()");
+    }
+}
+
+BLL 层
+首先添加引用
+import com.tgb.spring.dao.UserDao;
+import com.tgb.spring.dao.UserDaoMySqlImpl;
+
+public interface UserManager {
+	public void addUser(String username, String password);
+}
+
+public class UserManagerImpl implements UserManager {
+ 
+	@Override
+	public void addUser(String username, String password) {
+        
+		UserDao userDao = new UserDaoMySqlImpl();//通过new的方式全管理其他层的对象
+		userDao.addUser(username, password);
+	}
+}
+
+UI层：
+引用BLL层
+mport com.tgb.spring.manager.UserManager;
+import com.tgb.spring.manager.UserManagerImpl;
+
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		UserManager userManager = new UserManagerImpl();
+		userManager.addUser("admin", "123");
+}
+
+
+Ioc的核心思想，本来由应用程序管理的对象之间的依赖关系，现在交给了Ioc容器管理，
+
+DAL层：
+public interface UserDao {
+	public void addUser(String username,String password);
+}
+
+public class UserDaoMySqlImpl implements UserDao {
+	@Override
+	public void addUser(String username, String password) {
+		System.out.println("UserDaoMySqlImpl.addUser()");
+	}
+}
+
+BLL层
+ 
+public interface UserManager {
+	public void addUser(String username, String password);
+}
+
+import com.tgb.spring.dao.UserDao;
+ 
+public class UserManagerImpl implements UserManager {
+ 
+	private UserDao userDao;
+ 
+    public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	@Override
+	public void addUser(String username, String password) {
+		userDao.addUser(username, password);
+	}
+ 
+	
+}
+
+这里我们改动了代码，我们在BLL中声明了DAL中的UserDao，但是没有初始化，
+
+UI层：
+ 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.tgb.spring.manager.UserManager;
+ 
+public class Client {
+ 
+	public static void main(String[] args) {
+		BeanFactory factory = new ClassPathXmlApplicationContext(
+				"applicationContext.xml");
+ 
+		UserManager userManager = (UserManager) factory.getBean("userManager");
+		userManager.addUser("admin", "123456");
+	}
+}
+U层声明了B层的UserManager接口，通过getBean的方式完成实例化过程。
+
+在核心文件applicationContext.xml中，我们通过bean管理需要被依赖的类UserDaoMySqlmpl、UserManagerImpl，
+通过setter注入的方式，把userDao4Mysql注入到UserManagerImpl中。
+
+
+IOC的特点：
+1.无需主动new对象，而是描述对象应该如何被创建 Ioc容器帮助我们创建，即被动实例化
+2.不需要主动装配对象之间的依赖关系，而是描述需要哪个服务
+3.主动变成被动
+
+1.谁控制谁？为什么叫反转？ Ioc容器控制器，以前是应用程序控制器，所以叫反转
+2.控制什么 控制应用程序需要的资源
+3.为什么控制？ 解耦组件之间的关系
+4.控制的哪些方面被反转了 控制权发生了反转，从应用程序转移到了Ioc容器
+
+
+Ioc等同于工厂吗？
+Ioc和以前方式有什么不一样？
+
+依赖注入：用一个单独的对象（装配器）来装配对象之间的依赖关系 。
+
+
+--部分引用http://jinnianshilongnian.iteye.com/blog/1471944
+https://www.cnblogs.com/dolphin0520/p/3919839.html

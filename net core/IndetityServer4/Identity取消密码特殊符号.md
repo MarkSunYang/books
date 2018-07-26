@@ -1,0 +1,1 @@
+https://andrewlock.net/creating-custom-password-validators-for-asp-net-core-identity-2/

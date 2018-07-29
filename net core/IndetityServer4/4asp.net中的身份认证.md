@@ -1,0 +1,3 @@
+Authentication和Authorization
+Authentication想要说明白的是 你是谁（你的身份是什么）
+Authorization想要说明白的是 你能做什么（得到了什么权限）

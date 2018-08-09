@@ -11,3 +11,6 @@ https://www.mtyun.com/library/how-to-install-docker-on-centos
 
 docker run hello-world 运行helloworld demo
 
+
+docker .net core 
+http://www.cnblogs.com/sheng-jie/p/8107877.html

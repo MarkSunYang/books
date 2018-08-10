@@ -1,3 +1,8 @@
 https://www.cnblogs.com/yangcb/p/5852380.html
 
 遇到问题，java 8 的问题调整 jdk jre顺序即可
+
+没有安装java的情况下安装jenkins是会出问题的，
+
+
+安装git

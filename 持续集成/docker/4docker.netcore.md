@@ -10,7 +10,7 @@ https://cr.console.aliyun.com/cn-qingdao/mirrors
 
 您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器
 sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF'
+sudo tee c/daemon.json <<-'EOF'
 {
   "registry-mirrors": ["https://6pbsl824.mirror.aliyuncs.com"]
 }
@@ -51,6 +51,13 @@ Dockerfile用来定义你将要在容器中执行的系列操作。我们来创�
 $ cd $Home/Demo/HelloDocker.Web
 
 
+6. 上传自定义镜像到dockerhub
+z这里会遇到镜像上传被拒绝的情况，具体百度 
+
+
+
+
+
 docker ps -a 
 docker rm -f 
 
@@ -59,3 +66,6 @@ http://www.cnblogs.com/sheng-jie/p/8107877.html
 
 docker nginx
 https://www.cnblogs.com/wwzyy/p/8337965.html
+
+docker netcore
+https://www.cnblogs.com/baiyunchen/p/5812110.html

@@ -23,4 +23,7 @@ Expression<Func<int, bool>> lambda = num => num < 5;
  这样写显然，会比 _dbcontext.Person.Where(o=>t=>t.Name== "在路上" && t.Status== "EBL").FirstorDefault;
  好，因为表达式可以动态构建，而且，这样抽出来，可以提高重用性。
  我们可以在查询的时候将表达式作为参数传入
- 
+
+
+
+ 待阅读：https://www.cnblogs.com/wolf-sun/p/4234747.html

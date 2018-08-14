@@ -43,3 +43,5 @@ http://paulovich.net/manga/
 https://www.cnblogs.com/Leo_wl/p/4343242.html
 
 https://yq.aliyun.com/articles/53436#comment
+
+手动加星 https://yq.aliyun.com/articles/69036

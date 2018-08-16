@@ -1,10 +1,34 @@
 
 四层架构：
-MVC
-Application
+MVC：
+
+Application：
+用来封装业务逻辑
+面向用例
+粗粒度
+外部视图看系统
+一个请求对应一个方法。
+服务之间不相互调用
+职责一般包括：跨模块协调、DTO转换、事务AOP、权限AOP、日志AOP、异常AOP、邮件、消息队列
+
+风格：
+a.
+public class ApplicationService{
+     public void Create(string username, string password);
+}
+
+b.
+public class ApplicationService{
+    public CreateUserResponse Create(CreateUserRequest request);
+}
+
+c.
+public class CreateUserCommand {}
+public class CreateUserCommandHandler {}
+
+
 
 Domain：
-
 
 Infrastructure
 
@@ -18,6 +42,7 @@ http://paulovich.net/manga/
 
 https://www.cnblogs.com/Leo_wl/p/4343242.html
 
+<<<<<<< HEAD
 https://www.jdon.com/ddd.html
 
 
@@ -38,3 +63,8 @@ DDD中：
 胀血模型：胀血模型就是把和业务逻辑不想关的其他应用逻辑（如授权、事务等）都放到领域模型中。我感觉胀血模型反而是另外一种的失血模型，因为服务层消失了，领域层干了服务层的事，到头来还是什么都没变。
 
 参考https://kb.cnblogs.com/page/520746/
+=======
+https://yq.aliyun.com/articles/53436#comment
+
+手动加星 https://yq.aliyun.com/articles/69036
+>>>>>>> ce0da5828907830735f73cc04f281b9e277c78ca

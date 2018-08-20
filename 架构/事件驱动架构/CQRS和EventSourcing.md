@@ -41,3 +41,7 @@ Data Persistence ->Write Mode
 先操一个简单的demo，我们需要
 a.命令 b.事件 c.命令处理 d.事件处理
 实现最小单元的CQRS
+
+
+
+

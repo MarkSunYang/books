@@ -45,3 +45,11 @@ https://www.cnblogs.com/Leo_wl/p/4343242.html
 https://yq.aliyun.com/articles/53436#comment
 
 手动加星 https://yq.aliyun.com/articles/69036
+
+分层和DDD的分离
+http://www.cnblogs.com/richieyang/p/5373250.html
+
+
+http://www.cnblogs.com/xishuai/p/ddd-repository-iunitofwork-and-idbcontext-part-2.html、
+
+https://www.cnblogs.com/xishuai/p/3750154.html

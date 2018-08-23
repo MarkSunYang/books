@@ -11,3 +11,6 @@ Update-Database -Verbose
 Add-Migration add-Post
 然后执行
 Update-Database -Verbose
+
+
+注意1：如果使用List<>关系作为外键可能会发生问题，具体问题具体分析

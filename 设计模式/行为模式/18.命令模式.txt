@@ -23,3 +23,4 @@ Client（客户）：负责创建一个具体的命令（Concrete Command）
 
 
 
+将操作封装成对象

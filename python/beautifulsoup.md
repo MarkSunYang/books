@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 对象的种类
 Tag , 
 NavigableString ,
  BeautifulSoup ,
   Comment
-=======
 1. 安装
  pip install beautifulsoup4
 
@@ -30,4 +28,3 @@ tag['class']
 
 # 遍历文档树
     
->>>>>>> 9e24e3452d8e4456674bdfd8640abe5e4a348b0e

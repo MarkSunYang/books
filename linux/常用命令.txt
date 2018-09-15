@@ -115,3 +115,7 @@ head -line filename
 
 
 
+
+
+//查看运行状态
+ps -ef|grep nginx

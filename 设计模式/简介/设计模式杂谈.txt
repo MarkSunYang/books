@@ -8,3 +8,33 @@ https://www.cnblogs.com/tongkey/p/7170826.html
 
 
 https://gof.quanke.name/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89.html
+
+
+
+创建型
+工厂模式
+抽象工厂
+单例模式
+建造者模式
+
+
+结构型 通过组合将对外接口简单化
+
+Adapter 适配器模式  将一个接口转换为另一个接口
+
+Bridge 桥接模式     将接口和实现解耦
+
+Decoraor 装饰器模式 在不改变原有对象的前提下，添加新的功能
+
+Fecede 外观模式     将接复杂封装到统一的接口中
+
+Proxy 代理模式      控制访问的对象
+
+delegate 委托模式   
+
+
+行为型
+类或对象间的交互和职责分配
+观察者模式 
+命令模式
+解释器模式

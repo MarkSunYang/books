@@ -12,6 +12,13 @@
 用于在ASP.NET Core web applications构建用户权限系统的框架，包括了membership、login等功能，同时也可以方便的扩展和自定义。
 
 
+From handlers and modules to middleware
+# MiddleWare 
+1. Invoked in principle for every request
+2. 可以不传送请求从而中断请求
+3. 可创建自己的请求
+
+
 
 # startup 和 Middleware
 Configure方法用于每次http请求的处理，比如后面要讲的中间件(Middleware)，就是在configure方法中配置。

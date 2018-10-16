@@ -24,3 +24,8 @@ Event Bus 这是用来发布应用到领域模型的事件的。
 Event Handlers 事件处理程序的主要目的是接收事件并更新所读取的领域模型
 Thin Data Layer
 Query Facade
+
+
+https://www.youtube.com/watch?v=JHGkaShoyNs
+
+https://www.youtube.com/watch?v=icyvKTuZkzE

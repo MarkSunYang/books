@@ -29,3 +29,5 @@ Query Facade
 https://www.youtube.com/watch?v=JHGkaShoyNs
 
 https://www.youtube.com/watch?v=icyvKTuZkzE
+
+http://danielwhittaker.me/2014/10/02/cqrs-step-step-guide-flow-typical-application/

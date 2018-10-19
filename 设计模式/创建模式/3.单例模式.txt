@@ -14,14 +14,92 @@ Ensure a class only has one instance, and provide a globale point of access to i
 饿汉式：指全局的单例实例在类装载时构建。
 
 
-// Version 1
-public class Single1 {
-    private static Single1 instance;
-    public static Single1 getInstance() {
-        if (instance == null) {
-            instance = new Single1();
-        }
-        return instance;
-    }
-}
 
+    /// <summary>
+    /// 线程不安全的单例模式
+    /// </summary>
+    public class SingletonNotSafeWithMutilThread
+    {
+        private static SingletonNotSafeWithMutilThread singleton =null;
+        private static int i = 0;
+        public SingletonNotSafeWithMutilThread() { }
+
+        public static SingletonNotSafeWithMutilThread CreateSingleton()
+        {
+            if (singleton== null){
+                i++;
+                Console.WriteLine(i.ToString());
+                singleton =new SingletonNotSafeWithMutilThread();
+            }
+            return singleton;
+        }
+
+    }
+
+    /// <summary>
+    /// 懒汉式，线程安全
+    /// 效率存在问题，任何时候只有一个
+    /// </summary>
+    public class SingletonSafeWithMutilThread
+    {
+        private static readonly object syncObject = new object();
+        private static SingletonSafeWithMutilThread singleton = null;
+        private static int i = 0;
+        public SingletonSafeWithMutilThread() { }
+
+        public  static  SingletonSafeWithMutilThread CreateSingleton()
+        {
+            lock (syncObject)
+            {
+                if (singleton == null)
+                {
+                    i++;
+                    Console.WriteLine(i.ToString());
+                    singleton = new SingletonSafeWithMutilThread();
+                }
+                Thread.Sleep(2000);
+            }
+            return singleton;
+        }
+
+        public static int GetNumber()
+        {
+           
+            lock (syncObject)
+            {
+                i++;
+                Console.WriteLine(i.ToString());
+            }
+          
+            return i;
+        }
+    }
+
+    /// <summary>
+    /// 如果对象已经创建了那么直接返回，如果没有创建，那么返回实例
+    /// </summary>
+    public class SingletonSafeWithMutilThreadDoubleCheck
+    {
+        private static readonly object syncObject = new object();
+        private static SingletonSafeWithMutilThreadDoubleCheck singleton = null;
+        private static int i = 0;
+        public SingletonSafeWithMutilThreadDoubleCheck() { }
+
+        public static SingletonSafeWithMutilThreadDoubleCheck CreateSingleton()
+        {
+            if (singleton==null)
+            {
+                lock (syncObject)
+                {
+                    if (singleton == null)
+                    {
+                        i++;
+                        Console.WriteLine(i.ToString());
+                        singleton = new SingletonSafeWithMutilThreadDoubleCheck();
+                    }
+                }
+            }
+
+            return singleton;
+        }
+    }

@@ -50,7 +50,6 @@ Dockerfile用来定义你将要在容器中执行的系列操作。我们来创�
 //确保进入我们创建的MVC项目目录中去
 $ cd $Home/Demo/HelloDocker.Web
 
-
 6. 上传自定义镜像到dockerhub
 z这里会遇到镜像上传被拒绝的情况，具体百度 
 

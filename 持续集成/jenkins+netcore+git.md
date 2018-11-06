@@ -20,6 +20,8 @@ https://blog.csdn.net/boling_cavalry/article/details/78943061
 默认是发布到jenkins的 workspace下的
 https://blog.csdn.net/russ44/article/details/51694074
 
+6. 无法添加webhook
+https://blog.csdn.net/xukangkang1hao/article/details/80756085
 
 # Start all GitLab components
 sudo gitlab-ctl start
@@ -31,8 +33,3 @@ sudo gitlab-ctl stop
 
 # Restart all GitLab components
 sudo gitlab-ctl restart
---------------------- 
-作者：AinUser 
-来源：CSDN 
-原文：https://blog.csdn.net/ainuser/article/details/77119304 
-版权声明：本文为博主原创文章，转载请附上博文链接！

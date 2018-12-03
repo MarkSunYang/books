@@ -9,15 +9,20 @@
 
     <script>
 
-        var anOthercolor = "red";//全局变量
+        var color = "blue";//全局变量
 
         function changeColors() {
-            var anOthercolor = "blue";
-
+            var anOthercolor = "red";
+            console.log(color);
+          
             function swapColors() {
+                console.log(color);
+                console.log(anOthercolor);
+                
                 var tempColor = anOthercolor;
                 anOthercolor = color;
                 color = tempColor;
+                console.log(tempColor);
                 //这里可以访问color，anotherColor，tempColor
             }
             //这里可以访问color和anotherColor但不能当问tempColor
@@ -26,6 +31,12 @@
         //这里只能访问color
         changeColors();
 
+
+        if(true){
+            var name="mark";
+        }
+
+        console.log(name);
         /*
             以上代码共涉及3个执行环境: 全局环境， changeColors() 的局部环境和swapColor()的局部环境，
             全局环境中有一个变量color和一个函数 changeColors()

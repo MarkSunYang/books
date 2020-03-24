@@ -1,6 +1,10 @@
 官方文档
 https://ocelot.readthedocs.io/en/latest/
 
+https://www.cnblogs.com/yilezhu/p/9638417.html
+
+https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-api-gateways-with-ocelot
+
 # 什么是API网关
 类似门面模式，由于移动端设备的多样性，对于请求进行管理
 在网关层进行非业务的业务功能处理

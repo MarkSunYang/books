@@ -29,6 +29,7 @@ Ocelot 13.5.2
 
 
 # 路由
+
 Ocelot的主要功能是接收传入的http请求并将它们转发到下游服务。Ocelot当前仅以另一个http请求的形式支持此功能（将来可能是任何传输机制）。
 
 "ReRoutes": []
@@ -38,3 +39,14 @@ DownstreamPathTemplate，DownstreamScheme和DownstreamHostAndPorts定义了将�
 DownstreamHostAndPorts 是一个集合，用于定义您希望将请求转发到的任何下游服务的主机和端口。
 
 默认的ReRouting配置不区分大小写！
+
+# 请求聚合
+Ocelot允许您指定组成多个普通ReRoute的Aggregate ReRoute，并将其响应映射到一个对象中。通常在这里，您的客户端正在向服务器发出多个请求，而该服务器可能只是一个。此功能使您可以开始使用Ocelot为前端类型的体系结构实现后端。
+
+
+# 管理页面 和  服务发现
+
+ * Consul
+ * Eureka
+ * 动态路由
+ 

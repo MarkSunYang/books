@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title></title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+</head>
+
+<body>
+    <div id="app">
+
+        {{a}}
+        <p v-html="rawHtml"></p>
+
+        <div v-bind:class="color">color</div>
+        <div
+            v-bind:class="{active:isactive}"
+            style="width: 200px;">
+            hi vue 
+        </div>
+    </div>
+
+    <script>
+
+            // el:元素
+            // data: 保存数据
+            // 数据与方法
+            // watch : 观察变量的变化
+            // 生命周期：钩子
+
+        var data = { a: 1 };//响应式
+        var vm = new Vue({
+
+            el: "#app",
+            data: {
+                a:1,
+                rawHtml:'<span style="color:red;">this is my house</span>',
+                color:'blue',
+                click1:function(){
+                    console.log("click1...");
+                },
+                isactive:true
+            }
+            // beforeCreate:function(){
+            //     console.log("实例化之后，数据配置之前beforeCreate...");
+            // },
+            // created:function(){
+            //     console.log("实例创建之后，完成数据配置created...");
+            // },
+            // beforeMount:function(){console.log("beforeMount...");},
+            // mounted:function(){console.log("mounted...");},
+            // beforeUpdate:function(){console.log("beforeUpdate...");},
+            // updated:function(){console.log("updated...");}
+        });
+        data.a = "........."
+        
+        vm.$watch('a', function (newval, oldval) {
+            console.log(newval, oldval);
+        })
+        vm.a = "test";
+    </script>
+
+
+
+</body>
+<style type="text/css">
+.red{color:red;}
+.blue{color:blue;}
+.active{color:green;}
+</style>
+</html>

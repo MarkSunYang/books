@@ -1,0 +1,8 @@
+[Unit]
+Description= my test app
+[Service]
+Type=notify
+ExecStart=/usr/bin/dotnet  /home/demo/WorkerService.dll
+
+[Install]
+WantedBy=multi-user.target

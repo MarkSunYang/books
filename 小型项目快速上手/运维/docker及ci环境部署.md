@@ -1,3 +1,8 @@
+
+docker 安装
+
+sudo chmod 666 docker.sock
+
 13. docker ngxin 的部署
 需要新建一个 config文件
 先启动一个              nginx  docker run --name nginx -p 8080:80 -d nginx，然后把配置文件拷出来

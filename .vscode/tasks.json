@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "typescript",
+			"tsconfig": "小型项目快速上手/前端学习/ts整理/tsdemo/tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build",
+			"label": "tsc: 构建 - 小型项目快速上手/前端学习/ts整理/tsdemo/tsconfig.json"
+		}
+	]
+}

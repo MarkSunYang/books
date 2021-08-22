@@ -114,3 +114,12 @@ https://blog.csdn.net/qq_41922608/article/details/114405905
 8001 jenkins
 8002 gitlab
 8003 nuget
+8006 禅道
+
+
+
+# 禅道的搭建
+https://www.zentao.net/book/zentaopmshelp/405.html
+
+sudo docker run --name zentao -p 8006:80 --ip 120.48.254.79 -v /data/docker/zentao/zentaopms:/www/zentaopms -v /data/docker/zentao/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d easysoft/zentao:12.3.3
+

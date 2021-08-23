@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>模板与法</h1>
+        <a href="url">{{url}}</a>
+        <hr>
+
+        <h1>指令语法</h1>
+        <a v-bind:href="url"  v-bind:x="hello">go to google</a>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false //阻止提示
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                url: 'https://www.google.com.hk/',
+                hello:'所以你好'
+            },
+
+        })
+    </script>
+</body>
+
+</html>

@@ -12,9 +12,7 @@
 
 <body>
     <div id="app">
-      <input type="text" v-model="name"> 
-      <button @click="show" >点击</button>
-      <button @click="show2($event,2)" >点击</button>
+      <input type="text" placeholder="按下回车提示输入" @keyup.enter="showinfo" > 
     </div>
 
     <script>
@@ -25,13 +23,8 @@
                name:'1234'
             },
             methods:{
-                show(event){
-                    console.log(event.target)
-                },
-                show2(event,item){
-                    console.log(item)
-                    console.log(event)
-                    console.log(event)
+                showinfo(e){
+                    console.log(e.target.value)
                 }
             }
 

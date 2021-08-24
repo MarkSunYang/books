@@ -12,9 +12,9 @@
 
 <body>
     <div id="app">
-      <input type="text" v-model="name"> 
-      <button @click="show" >点击</button>
-      <button @click="show2($event,2)" >点击</button>
+
+        <h2>今天天气很 {{weatherInfo}}</h2>
+        <button @click="ishot = !ishot">切换天气</button>
     </div>
 
     <script>
@@ -22,18 +22,17 @@
         var vm = new Vue({
             el: '#app',
             data: {
-               name:'1234'
+                ishot: true
             },
-            methods:{
-                show(event){
-                    console.log(event.target)
-                },
-                show2(event,item){
-                    console.log(item)
-                    console.log(event)
-                    console.log(event)
+            computed: {
+                weatherInfo() {
+                    return this.ishot ? '炎热' : '凉爽';
                 }
-            }
+            }, methods: {
+                // changeWeather() {
+                //     this.ishot = !this.ishot;
+                // }
+            },
 
         })
     </script>

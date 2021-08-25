@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <!-- <div>姓名案例插值语法实现1</div>
+        <div>
+            姓<input type="text" v-model="fname">
+        </div>
+        <div>
+            名<input type="text" v-model="lname">
+        </div>
+        <div>
+            {{fname.slice(0,3)}}-{{lname}}
+        </div> -->
+
+        <hr>
+
+        <!-- <div>姓名案例methods实现2</div>
+
+        <div>
+            姓<input type="text" v-model="fname">
+        </div>
+        <div>
+            名<input type="text" v-model="lname">
+        </div>
+        <div>{{fullName()}}</div> -->
+        <hr>
+        <div>
+            <div>姓名案例计算属性实现2</div>
+
+            <div>
+                姓<input type="text" v-model="fname">
+            </div>
+            <div>
+                名<input type="text" v-model="lname">
+            </div>
+            <div>{{fullName}}</div>
+        </div>
+    </div>
+
+
+    <script>
+        Vue.config.productionTip = false //阻止提示
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                fname: '',
+                lname: ''
+            },
+            computed: {
+                fullName: {
+                    get() {
+                        //读取fullname时，get会被调用，返回值就是fullname的值
+                        //get 有什么作用？当fullname被读取时，get会被调用，且返回值为fullname的值
+                        //get 什么适合被调用， 初次调用get() 或者 get中所依赖的数据被调用
+                        return this.fname + '-' + this.lname;
+                    }
+                }
+            },
+            methods: {
+                // fullName() {
+                //     console.log('-----------')
+                //     return this.fname + '-' + this.lname;
+                // }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <ul v-for="(item,index) of people" :key="index">
+            <li>姓名:{{item.name}} 年龄 {{item.age}}
+                <input type="input">
+            </li>
+        </ul>
+
+        <button @click="appPerson">appPerson</button>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false //阻止提示
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                people: [
+                    { id: 1, name: '张三', age: 20, },
+                    { id: 2, name: '李四', age: 20, },
+                    { id: 3, name: '王五', age: 20, }
+                ],
+
+            },
+            methods: {
+                appPerson() {
+                    const p = { id: 4, name: '周六', age: 20, };
+                    this.people.unshift( p)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

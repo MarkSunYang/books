@@ -15,6 +15,10 @@
 
         <h2>今天天气很 {{weatherInfo}}</h2>
         <button @click="ishot = !ishot">切换天气</button>
+        <hr>
+        <h2> {{Number.a}}</h2>
+        <button @click="Number.a++">点位让a++</button>
+        <button @click="Number.b++">点位让b++</button>
     </div>
 
     <script>
@@ -22,22 +26,25 @@
         var vm = new Vue({
             el: '#app',
             data: {
-                ishot: true
+                ishot: true,
+                Number: {
+                    a: 1,
+                    b: 2
+                }
             },
             computed: {
                 weatherInfo() {
                     return this.ishot ? '炎热' : '凉爽';
                 }
-            }, methods: {
-                // changeWeather() {
-                //     this.ishot = !this.ishot;
-                // }
-            },
-            watch:{
-                //handler 什么时候调用？ 当ishot发生时改变
-                ishot:{
-                    handler(newVaule,oldValue){
-                        console.log('isHot发生了改变',newVaule,oldValue)
+            }, watch: {
+
+                //监视多级结构某个属性
+                // vue 
+               
+                Number: {
+                    deep:'true',
+                    handler() {
+                        console.log('a changed')
                     }
                 }
             }

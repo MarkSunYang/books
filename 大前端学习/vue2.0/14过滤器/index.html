@@ -7,18 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript" src="./moment.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div id="app">
-        学习vue  {{name}}  
-
-      <div  @click="show" style="width: 300px; height: 300px; background-color: aquamarine;">
-        <button @click="show" >最简单事件绑定</button>
-      </div>
-
-      <button @click="show2($event,2)" >阻止提示a标签行为</button>
+        <h2>显示格式化后的时间</h2>
+       
+        <h3>{{time | timeformat}}</h3>
     </div>
 
     <script>
@@ -26,18 +23,22 @@
         var vm = new Vue({
             el: '#app',
             data: {
-               name:'1234'
+                time: 1629966123532
             },
-            methods:{
-                show(event){
-                   console.log('hello')
-                },
-                show2(event,item){
-                    console.log(item)
-                    console.log(event)
-                    console.log(event)
+            computed: {
+                // formatTime() {
+                //     return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                // }
+            },
+            methods: {
+                
+            },
+            filters:{
+                timeformat(alue){
+                     return dayjs(alue).format('YYYY-MM-DD HH:mm:ss')
                 }
             }
+            //过滤器实现
 
         })
     </script>

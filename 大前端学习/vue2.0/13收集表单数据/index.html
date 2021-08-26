@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="stop">
+            <label for="name">用户名：</label>
+            <input type="text" id="name" v-model="userInfo.account">
+            <br>
+            <label for="name">密 码:</label>
+            <input type="password" v-model="userInfo.password">
+            <br>
+            性别 <input type="radio"  name="sex" v-model="userInfo.sex" value="male" >
+                <input type="radio"  name="sex"  v-model="userInfo.sex" value="female" >
+            <br>
+             爱好：
+             学习<input type="checkbox" v-model="userInfo.hobby" value="study">
+             吃饭<input type="checkbox" v-model="userInfo.hobby" value="eat">
+             打游戏<input type="checkbox" v-model="userInfo.hobby" value="game">
+             <br>
+             <select v-model="userInfo.city">
+                 <option value="">请选择校区</option>
+                 <option value="bj">北京</option>
+                 <option value="sh">上海</option>
+                 <option value="gz">广州</option>
+             </select>
+             <br>
+             其他信息
+             <textarea v-model="userInfo.other"></textarea>
+             <br>
+             <input type="checkbox" v-model="userInfo.agree" >阅读并接受协议<a></a>
+             <br>
+             <button type="submit">提交</button>
+        </form>
+
+
+    </div>
+
+    <script>
+        Vue.config.productionTip = false //阻止提示
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                userInfo:{
+                    account:'',
+                    password:'',
+                    sex:'',
+                    hobby:[],
+                    city:'',
+                    other:'',
+                    agree:''
+                }
+            },
+            methods: {
+                stop(e){
+                    console.log( JSON.stringify(this.userInfo))
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

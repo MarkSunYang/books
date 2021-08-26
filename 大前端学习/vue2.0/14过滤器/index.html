@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript" src="./moment.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>显示格式化后的时间</h2>
+       
+        <h3>{{time | timeformat}}</h3>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false //阻止提示
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                time: 1629966123532
+            },
+            computed: {
+                // formatTime() {
+                //     return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+                // }
+            },
+            methods: {
+                
+            },
+            filters:{
+                timeformat(alue){
+                     return dayjs(alue).format('YYYY-MM-DD HH:mm:ss')
+                }
+            }
+            //过滤器实现
+
+        })
+    </script>
+</body>
+
+</html>

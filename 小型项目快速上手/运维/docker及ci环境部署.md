@@ -123,3 +123,12 @@ https://www.zentao.net/book/zentaopmshelp/405.html
 
 sudo docker run --name zentao -p 8006:80 --ip 120.48.254.79 -v /data/docker/zentao/zentaopms:/www/zentaopms -v /data/docker/zentao/mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d easysoft/zentao:12.3.3
 
+
+
+# mongodb
+
+docker run --name mongodb -p 27017:27017 -v /data/docker/mongodb:/data/db -v /data/docker/mongodb:/data/backup -d mongo --auth
+添加 docker exec -it mongodb mongo admin
+
+添加用户
+https://www.cnblogs.com/stardust233/p/12193850.html

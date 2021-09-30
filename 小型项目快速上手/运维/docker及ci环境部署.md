@@ -127,8 +127,15 @@ sudo docker run --name zentao -p 8006:80 --ip 120.48.254.79 -v /data/docker/zent
 
 # mongodb
 
-docker run --name mongodb -p 27017:27017 -v /data/docker/mongodb:/data/db -v /data/docker/mongodb:/data/backup -d mongo --auth
+docker run --name mongodb -p 27017:27017 -v /data/docker/mongodb:/data/db -v /data/docker/mongodb:/data/backup -d mongo 
 添加 docker exec -it mongodb mongo admin
+
+db.createUser({user:'root',roles:[{'role':'root','db':'test'}]})
 
 添加用户
 https://www.cnblogs.com/stardust233/p/12193850.html
+
+
+
+# 限制 docker 日志增长
+https://docs.docker.com/config/containers/logging/json-file/

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*
+       float 布局************************************ 
+       */
+        .layout article div {
+            min-height: 100px;
+        }
+
+        .float_left {
+            float: left;
+            width: 300px;
+            background-color: yellowgreen;
+        }
+
+        .float_right {
+            float: right;
+            width: 300px;
+            background-color: yellowgreen;
+        }
+
+        .float_center {
+            background-color: tomato;
+        }
+
+
+
+        /*
+       position  布局************************************ 
+       */
+
+        /* position 定位布局 */
+        .layout .position div {
+            position: absolute;
+            min-height: 100px;
+        }
+
+        .layout .position .position_left {
+            left: 0;
+            width: 300px;
+            background-color: violet;
+        }
+
+        .layout .position .position_right {
+            right: 0;
+            width: 300px;
+            background-color: violet;
+        }
+
+        .layout .position .position_center {
+            right: 300px;
+            left: 300px;
+            background-color: yellow
+        }
+
+        /*
+        Flex布局
+        */
+        /* flex 定位布局 */
+        .layout .flex {
+            display: flex;
+            min-height: 100px;
+        }
+
+        .flex_left {
+            width: 300px;
+            background-color: tomato;
+        }
+
+        .flex_right {
+            width: 300px;
+            background-color: tomato;
+        }
+
+        .flex_center {
+            flex: 1;
+            background-color: violet;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <section class="layout">
+        <article class="float">
+            <div class="float_left"></div>
+            <div class="float_right"></div>
+            <div class="float_center">
+                <h1>使用浮动实现解决三栏布局</h1>
+            </div>
+        </article>
+    </section>
+
+    <!-- <section class="layout">
+        <article class="position">
+            <div class="position_left"></div>
+            <div class="position_right"></div>
+            <div class="position_center">
+                <h1>使用绝对定位实现解决三栏布局</h1>
+            </div>
+        </article>
+    </section> -->
+
+
+    <section class="layout">
+        <article class="flex">
+            <div class="flex_left"></div>
+            <div class="flex_center">
+                <h1>使用flexBox实现解决三栏布局</h1>
+            </div>
+            <div class="flex_right"></div>
+        </article>
+    </section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./lib/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       
+    </div>
+    <script>
+        // 1.每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始的：
+        // 
+        /*
+        2.当创建一个 Vue 实例时，你可以传入一个选项对象
+            2.1 data: 类型：Object | Function
+            2.1.1 实例创建之后，可以通过 vm.$data 访问原始数据对象
+            2.1.2 Vue 实例也代理了 data 对象上所有的 property，因此访问 vm.a 等价于访问 vm.$data.a
+            2.1.3 以 _ 或 $ 开头的 property 不会被 Vue 实例代理，因为它们可能和 Vue 内置的 property、API 方法冲突。你可以使用例如 vm.$data._property 的方式访问这些 property。
+            2.1.4 当一个组件被定义
+            2.1.5 
+            
+            2.2 props:props 可以是数组或对象，用于接收来自父组件的数据。
+                props 可以是简单的数组，或者使用对象作为替代，对象允许配置高级选项，如类型检测、自定义验证和设置默认值。
+                你可以基于对象的语法使用以下选项：
+                * type
+                * default
+                * required
+                * validator
+
+
+            propsData:
+            computed:
+            methods
+            watch:
+        */
+
+        var data = { a: 1 }
+
+        var vm= new Vue({
+            el:'#app',
+            data: data,
+            created:function (){
+                console.log('a is: ' + this.a)
+            },
+        })
+
+
+        // 数据与方法
+        /*
+        当一个 Vue 实例被创建时，它将 data 对象中的所有的 property 加入到 Vue 的响应式系统中。
+        当这些 property 的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。
+
+        vue中的实例 property
+        vm.$data ： Vue 实例观察的数据对象。Vue 实例代理了对其 data 对象 property 的访问。
+        vm.$props : 当前组件接收到的 props 对象。Vue 实例代理了对其 props 对象 property 的访问。
+        vm.$el : Vue 实例使用的根 DOM 元素。
+        vm.$options ： 用于当前 Vue 实例的初始化选项。需要在选项中包含自定义 property 时会有用处：
+        vm.$slots ：
+        vm.$refs ： 一个对象，持有注册过 ref attribute 的所有 DOM 元素和组件实例。
+        vm.$attrs
+
+        */
+
+
+
+        /*
+        实例生命周期钩子
+        每个 Vue 实例在被创建时都要经过一系列的初始化过程
+        需要设置数据监听、编译模板、将实例挂载到 DOM 并在数据变化时更新 DOM 等。
+        同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。
+
+        比如也有一些其它的钩子，在实例生命周期的不同阶段被调用，如 mounted、updated 和 destroyed。
+        生命周期钩子的 this 上下文指向调用它的 Vue 实例。
+
+
+
+
+        */
+
+        console.log(vm.a)
+        console.log(vm.$data.a)
+
+    </script>
+</body>
+</html>

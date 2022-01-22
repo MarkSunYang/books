@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // const p=new Promise(function(res,rej){
+        //     setTimeout(function(){
+        //         //
+        //         let data='User data'
+        //         rej('error')
+        //     },1000)
+        // })
+
+        // p.then(function(value){
+        //     console.log(value)
+        // },function(reason){
+        //     console.log(reason)
+        // })
+
+
+        //1. 创建对象
+
+
+        const p = new Promise((res, rej) => {
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.apiopen.top/getJoke1")
+            //2. 初始化
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        res(xhr.response)
+                        //console.log(xhr.response)
+                    } else {
+                        rej(xhr.status);
+                       // console.log(xhr.status)
+                    }
+                }
+            }
+        });
+
+        p.then(function(value){
+            console.log(value)
+        },
+        function(reason){
+            console.log(reason)
+        });
+    </script>
+
+
+</body>
+
+</html>

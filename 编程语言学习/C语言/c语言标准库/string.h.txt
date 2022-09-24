@@ -1,8 +1,0 @@
-string .h 头文件定义了一个变量类型、一个宏和各种操作字符数组的函数。
-
-
-
-char *strcpy(char *dest, const char *src)
-把 src 所指向的字符串复制到 dest。
-dest -- 指向用于存储复制内容的目标数组。
-src  -- 要复制的字符串。

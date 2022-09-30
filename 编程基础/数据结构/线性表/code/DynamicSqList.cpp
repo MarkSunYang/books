@@ -19,6 +19,8 @@ void InitList(SqList &L)
     printf("init success");
 }
 
+
+
 /// @brief 程序入口main函数
 /// @return int
 int main()

@@ -1,1 +1,0 @@
-https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/modeling-statistics/regression/supporting-topics/basics/what-are-categorical-discrete-and-continuous-variables/
